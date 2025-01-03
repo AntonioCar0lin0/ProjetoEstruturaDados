@@ -1,11 +1,13 @@
 #ifndef PERSONAGEM_H
 #define PERSONAGEM_H
 
+using namespace std;
+
 #include <string>
 
 class Personagem {
 protected:
-    std::string nome;
+    string nome;
     int vida;
     int forca;
     int inteligencia;
@@ -14,14 +16,14 @@ protected:
     int instinto;
 
 public:
-    Personagem(std::string nome, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto)
+    Personagem(string nome, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto)
         : nome(nome), vida(vida), forca(forca), inteligencia(inteligencia), reflexo(reflexo), carisma(carisma),instinto(instinto) {}
 
     // Ações dos personagens (adicionar mais depois)
 //    virtual void atacar(Personagem& outro) = 0;
 //    virtual void apresentar() const = 0;
 
-    std::string get_nome() const {
+    string get_nome() const {
         return nome;
     }
 

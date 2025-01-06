@@ -5,7 +5,7 @@
 #ifndef MAX_H
 #define MAX_H
 
-#include <Personagem.h>
+#include "Personagem.h"
 
 class Max : public Personagem {
     public:

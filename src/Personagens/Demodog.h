@@ -4,7 +4,7 @@
 
 #ifndef DEMODOG_H
 #define DEMODOG_H
-#include <Personagem.h>
+#include "Personagem.h"
 class Demodog : public Personagem {
     public:
     Demodog()

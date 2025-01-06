@@ -5,7 +5,7 @@
 #ifndef LUCAS_H
 #define LUCAS_H
 
-#include <Personagem.h>
+#include "Personagem.h"
 class Lucas : public Personagem {
     public:
     Lucas()

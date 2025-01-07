@@ -54,29 +54,7 @@ public:
 //    virtual void atacar(Personagem& outro) = 0;
 //    virtual void apresentar() const = 0;
 
-    int getVida() const {
-        return vida;
-    }
 
-    int getForca() const {
-        return forca;
-    }
-
-    int getInteligencia() const {
-        return inteligencia;
-    }
-
-    int getReflexo() const {
-        return reflexo;
-    }
-
-    int getCarisma() const {
-        return carisma;
-    }
-
-    int getInstinto() const {
-        return instinto;
-    }
 };
 
 #endif

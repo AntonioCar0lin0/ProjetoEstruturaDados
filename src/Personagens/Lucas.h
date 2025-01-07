@@ -9,6 +9,9 @@
 class Lucas : public Personagem {
     public:
     Lucas()
-        : Personagem("Lucas", 100, 7, 8, 8, 7 , 9) {}
+        : Personagem("Lucas", 100, 7, 8, 8, 7 , 9) {
+        adicionarItem(Item("Fogos de Artifício", "Força", 6));
+        adicionarItem(Item("Estilingue", "Reflexo", 6));
+    }
 };
 #endif //LUCAS_H

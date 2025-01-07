@@ -10,6 +10,9 @@
 class Max : public Personagem {
     public:
     Max()
-        : Personagem("Max", 100, 4, 9, 8, 7, 8 ) {};
+        : Personagem("Max", 100, 4, 9, 8, 7, 8 ) {
+        adicionarItem(Item("Bússola", "Inteligência", 6));
+        adicionarItem(Item("Skate", "Reflexo", 6));
+    }
 };
 #endif //MAX_H

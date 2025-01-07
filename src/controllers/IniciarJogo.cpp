@@ -3,6 +3,8 @@
 #include <limits>
 #include <vector>
 #include <algorithm>
+#include "../views/MenuInicial.h"
+#include "../Conexao/conexao.cpp"
 #include "../Personagens/Personagem.h"
 #include "../Personagens/Eleven.h"
 #include "../Personagens/Mike.h"
@@ -13,7 +15,42 @@
 
 using namespace std;
 
-void IniciarJogo::exibirMenu(){
+vector<Personagem*> carregarPersonagensEscolhidos(){
+    ifstream arquivo("personagensEscolhidos.txt");
+    vector<Personagem*> personagens;
+    string nome;
+
+    if(!arquivo.is_open()){
+        cerr << "Erro ao abrir o arquivo para carregar os personagens!" << endl;
+        return personagens;
+    }
+
+    while(getline(arquivo, nome)){
+        if(nome == "Eleven"){
+            personagens.push_back(new Eleven());
+        } 
+        else if(nome == "Mike"){
+            personagens.push_back(new Mike());
+        } 
+        else if(nome == "Will"){
+            personagens.push_back(new Will());
+        } 
+        else if(nome == "Dustin"){
+            personagens.push_back(new Dustin());
+        } 
+        else if(nome == "Lucas"){
+            personagens.push_back(new Lucas());
+        } 
+        else if(nome == "Max"){
+            personagens.push_back(new Max());
+        }
+    }
+
+    arquivo.close();
+    return personagens;
+}
+
+void IniciarJogo::exibirMenuIniciarJogo(){
     int escolha;
     do{
         cout << "******************" << endl;
@@ -39,9 +76,11 @@ void IniciarJogo::exibirMenu(){
             case 3:
                 iniciarAventura();
                 break;
-            case 4:
-                cout << "Voltando ao menu principal...";
-                break;
+            case 4: {
+                MenuInicial menuInicial;
+                menuInicial.exibirMenuInicial();
+                return;
+            }
             default:
                 cout << "Opção inválida! Tente novamente." << endl;
                 break;
@@ -61,6 +100,8 @@ void IniciarJogo::escolherPersonagens(){
     vector<Personagem*> personagensEscolhidos;
 
     int escolha = 0;
+    personagensEscolhidos.clear();
+
     do {
         cout << endl;
         cout << "***Escolha seus Personagens***" << endl;
@@ -115,8 +156,10 @@ void IniciarJogo::escolherPersonagens(){
             }
         } 
         else if(escolha == (int)personagens.size() + 2){
-            cout << "Voltando ao menu principal..." << endl;
-            break;
+            limparArquivoPersonagensEscolhidos();
+            MenuInicial menuInicial;
+            menuInicial.exibirMenuInicial();
+            return;
         } 
         else{
             cout << "Opção inválida! Tente novamente." << endl;
@@ -128,11 +171,70 @@ void IniciarJogo::escolherPersonagens(){
     for(const auto& p : personagensEscolhidos){
         p->mostrarCaracteristicas();
     }
+    salvarPersonagensEscolhidos(personagensEscolhidos);
 }
-//implementar depois
+
+
 void IniciarJogo::escolherItens(){
-    cout << "Escolhendo itens..." << endl;
-    cout << endl;
+    vector<Personagem*> personagensEscolhidos = carregarPersonagensEscolhidos();
+    
+    if(personagensEscolhidos.empty()){
+        cout << "Você precisa escolher seus personagens antes de escolher os itens!" << endl;
+        return;
+    }
+
+    bool confirmar = false;
+    do{
+        for(auto& personagem : personagensEscolhidos){
+            cout << endl;
+            cout << "Escolha os itens para " << personagem->getNome() << ":" << endl;
+            const auto& itens = personagem->getItens();
+
+            for (size_t i = 0; i < itens.size(); i++){
+                cout << i + 1 << ". ";
+                itens[i].mostrarDetalhes();
+            }
+            cout << itens.size() + 1 << ". Voltar ao Menu Principal" << endl;
+
+            int escolha;
+            cout << "Escolha um item: ";
+            cin >> escolha;
+
+            if(cin.fail()){
+                cin.clear();
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cout << "Entrada inválida! Por favor, insira um número válido." << endl;
+                continue;
+            }
+
+            if(escolha >= 1 && escolha <= (int)itens.size()){
+                cout << personagem->getNome() << " recebeu o item: ";
+                itens[escolha - 1].mostrarDetalhes();
+            }
+            else if(escolha == (int)itens.size() + 1){
+                limparArquivoPersonagensEscolhidos();
+                MenuInicial menuInicial;
+                menuInicial.exibirMenuInicial();
+                return;
+            }
+            else{
+                cout << "Opção inválida! Tente novamente." << endl;
+            }
+        }
+
+        cout << endl;
+        cout << "Deseja confirmar os itens escolhidos?" << endl;
+        cout << "1. Sim" << endl;
+        cout << "2. Não" << endl;
+        cout << endl;
+        cout << ">>Escolha uma opção: " << endl;
+        int confirmacao;
+        cin >> confirmacao;
+
+        if(confirmacao == 1){
+            confirmar = true;
+        } 
+    }while(!confirmar);
 }
 
 //implementar depois

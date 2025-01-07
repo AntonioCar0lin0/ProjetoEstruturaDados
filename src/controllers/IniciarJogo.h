@@ -1,10 +1,15 @@
 #ifndef INICIAR_JOGO_H
 #define INICIAR_JOGO_H
 
+#include <vector>
+#include "../Personagens/Personagem.h"
+
 //Classe responsável por iniciar o jogo
 class IniciarJogo {
+private:
+    vector<Personagem*> personagensEscolhidos;
 public:
-    void exibirMenu();
+    void exibirMenuIniciarJogo();
     void escolherPersonagens();
     void escolherItens();
     void iniciarAventura();

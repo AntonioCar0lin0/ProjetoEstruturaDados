@@ -7,8 +7,9 @@
 
 
 
-class MenuInicial {
-
+class MenuInicial{
+public:
+    void exibirMenuInicial();
 };
 
 

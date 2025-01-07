@@ -4,7 +4,7 @@
 
 #ifndef DEMOGORGON_H
 #define DEMOGORGON_H
-#include <Personagem.h>
+#include "Personagem.h"
 class Demogorgon : public Personagem {
     public:
     Demogorgon()

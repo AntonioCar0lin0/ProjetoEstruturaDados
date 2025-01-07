@@ -5,7 +5,7 @@
 #ifndef JUSTIN_H
 #define JUSTIN_H
 
-#include <Personagem.h>
+#include "Personagem.h"
 class Justin : public Personagem {
     public:
     Justin()

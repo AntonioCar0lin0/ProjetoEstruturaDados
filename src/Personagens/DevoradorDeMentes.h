@@ -5,7 +5,7 @@
 #ifndef DEVORADORDEMENTES_H
 #define DEVORADORDEMENTES_H
 
-#include <Personagem.h>
+#include "Personagem.h"
 class DevoradorDeMentes : public Personagem{
     public:
     DevoradorDeMentes()

@@ -4,7 +4,7 @@
 
 #ifndef VECNA_H
 #define VECNA_H
-#include <Personagem.h>
+#include "Personagem.h"
 class Vecna : public Personagem {
     public:
     Vecna()

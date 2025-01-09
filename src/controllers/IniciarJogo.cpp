@@ -1,9 +1,11 @@
+#undef byte
+#include <cstddef>
 #include "IniciarJogo.h"
 #include <iostream>
 #include <limits>
 #include <vector>
 #include <algorithm>
-#include "../views/MenuInicial.h"
+#include "MenuInicial.h"
 #include "../Conexao/conexao.cpp"
 #include "../Personagens/Personagem.h"
 #include "../Personagens/Eleven.h"
@@ -52,6 +54,7 @@ vector<Personagem*> carregarPersonagensEscolhidos(){
 
 void IniciarJogo::exibirMenuIniciarJogo(){
     int escolha;
+    MenuInicial menuInicial;
     do{
         cout << "******************" << endl;
         cout << "***Iniciar Jogo***" << endl;

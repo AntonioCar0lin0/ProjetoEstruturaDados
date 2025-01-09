@@ -80,7 +80,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
                 iniciarAventura();
                 break;
             case 4: {
-                MenuInicial menuInicial;
+                //MenuInicial menuInicial;
                 menuInicial.exibirMenuInicial();
                 return;
             }

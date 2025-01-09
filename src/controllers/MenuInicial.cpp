@@ -1,4 +1,4 @@
-#undef byte
+
 #include <cstddef>
 #include <iostream>
 #include "menuInicial.h"
@@ -47,7 +47,6 @@ void MenuInicial::exibirMenuInicial() {
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
     int opcao;
-    //IniciarJogo jogo; (ALERTA): EXPLICAÇÃO -> INSTANCIO AQUI PARA EVITAR DAR ERRO, MAS DÁ ERRO COM E SEM ISSO
     std::wcout <<L"***********************************************"<< std::endl;
     std::wcout <<L"*************[APRESENTAÇÃO DO JOGO]************"<< std::endl;
     std::wcout <<L"***********************************************"<< std::endl;
@@ -63,8 +62,8 @@ void MenuInicial::exibirMenuInicial() {
 
         switch(opcao) {
             case 1:
-                //IniciarJogo jogo; (ALERTA)
-                //jogo.exibirMenuIniciarJogo(); (ALERTA)
+                IniciarJogo iniciarJogo;
+                iniciarJogo.exibirMenuIniciarJogo();
 
                 break;
             case 2:
@@ -82,14 +81,14 @@ void MenuInicial::exibirMenuInicial() {
 }
 
 // main para ver se a aplicação individualmente tá rodando
-int main() {
-    _setmode(_fileno(stdout), _O_U8TEXT);
-    setlocale(LC_ALL, "");
-
+//int main() {
+//    _setmode(_fileno(stdout), _O_U8TEXT);
+//    setlocale(LC_ALL, "");
+//
     // Chama o menu inicial
-    MenuInicial menuInicial;
-    menuInicial.exibirMenuInicial();
+//    MenuInicial menuInicial;
+//    menuInicial.exibirMenuInicial();
 
-    return 0;
-}
+//    return 0;
+//}
 //

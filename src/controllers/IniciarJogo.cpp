@@ -14,7 +14,10 @@
 #include "../Personagens/Justin.h"
 #include "../Personagens/Lucas.h"
 #include "../Personagens/Max.h"
-
+#include <windows.h>
+#include <fcntl.h>
+#include <io.h>
+#include <clocale>
 using namespace std;
 
 vector<Personagem*> carregarPersonagensEscolhidos(){
@@ -53,21 +56,23 @@ vector<Personagem*> carregarPersonagensEscolhidos(){
 }
 
 void IniciarJogo::exibirMenuIniciarJogo(){
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    setlocale(LC_ALL, "");
     int escolha;
     MenuInicial menuInicial;
     do{
-        cout << "******************" << endl;
-        cout << "***Iniciar Jogo***" << endl;
-        cout << "******************" << endl;
-        cout << endl;
-        cout << "1. Escolher Personagens" << endl;
-        cout << "2. Escolher Itens" << endl;
-        cout << "3. Iniciar Aventura" << endl;
-        cout << "4. Voltar ao Menu" << endl;
-        cout << endl;
-        cout << "Escolha uma opção: ";
+        std::wcout << L"******************" << std::endl;
+        std::wcout << L"***Iniciar Jogo***" << std::endl;
+        std::wcout << L"******************" << std::endl;
+        std::wcout << std::endl;
+        std::wcout << L"1. Escolher Personagens" << std::endl;
+        std::wcout << L"2. Escolher Itens" << std::endl;
+        std::wcout << L"3. Iniciar Aventura" << std::endl;
+        std::wcout << L"4. Voltar ao Menu" << std::endl;
+        std::wcout << std::endl;
+        std::wcout << L"Escolha uma opção: " << std::endl;
         cin >> escolha;
-        cout << endl;
+
 
         switch(escolha){
             case 1:
@@ -85,7 +90,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
                 return;
             }
             default:
-                cout << "Opção inválida! Tente novamente." << endl;
+                std::wcout << L"Opção inválida! Tente novamente." << std:: endl;
                 break;
         }
     } while(escolha != 4);

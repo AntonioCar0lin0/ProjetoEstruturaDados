@@ -47,6 +47,7 @@ void MenuInicial::exibirMenuInicial() {
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
     int opcao;
+    IniciarJogo iniciarJogo;
     std::wcout <<L"***********************************************"<< std::endl;
     std::wcout <<L"*************[APRESENTAÇÃO DO JOGO]************"<< std::endl;
     std::wcout <<L"***********************************************"<< std::endl;
@@ -62,7 +63,7 @@ void MenuInicial::exibirMenuInicial() {
 
         switch(opcao) {
             case 1:
-                IniciarJogo iniciarJogo;
+                //IniciarJogo iniciarJogo;
                 iniciarJogo.exibirMenuIniciarJogo();
 
                 break;

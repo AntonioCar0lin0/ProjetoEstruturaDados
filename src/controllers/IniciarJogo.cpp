@@ -21,6 +21,8 @@
 using namespace std;
 
 vector<Personagem*> carregarPersonagensEscolhidos(){
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    setlocale(LC_ALL, "");
     ifstream arquivo("personagensEscolhidos.txt");
     vector<Personagem*> personagens;
     string nome;
@@ -97,6 +99,8 @@ void IniciarJogo::exibirMenuIniciarJogo(){
 }
 
 void IniciarJogo::escolherPersonagens(){
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    setlocale(LC_ALL, "");
     vector<Personagem*> personagens = {
         new Eleven(),
         new Mike(),
@@ -126,7 +130,7 @@ void IniciarJogo::escolherPersonagens(){
         std::wcout << std::endl;
 
         if (!personagensEscolhidos.empty()){
-            std::wcout << ">>Personagens escolhidos até agora:" << std::endl;
+            std::wcout << ">>Personagens escolhidos:" << std::endl;
             for (const auto& p : personagensEscolhidos){
                 std::wcout << "- " << p->get_nome() << std::endl;
             }
@@ -184,6 +188,8 @@ void IniciarJogo::escolherPersonagens(){
 
 
 void IniciarJogo::escolherItens(){
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    setlocale(LC_ALL, "");
     vector<Personagem*> personagensEscolhidos = carregarPersonagensEscolhidos();
     
     if(personagensEscolhidos.empty()){
@@ -247,6 +253,8 @@ void IniciarJogo::escolherItens(){
 
 //implementar depois
 void IniciarJogo::iniciarAventura(){
+    _setmode(_fileno(stdout), _O_U8TEXT);
+    setlocale(LC_ALL, "");
     std::wcout << "Iniciando aventura..." << std::endl;
     std::wcout << std::endl;
 }

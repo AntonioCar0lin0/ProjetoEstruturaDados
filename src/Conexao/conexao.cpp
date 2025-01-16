@@ -6,6 +6,7 @@
 
 // Função para salvar personagens escolhidos em um arquivo
 void limparArquivoPersonagensEscolhidos() {
+
     ofstream arquivo("personagensEscolhidos.txt", ios::trunc); // Modo trunc limpa o conteúdo
     if (!arquivo.is_open()) {
         cerr << "Erro ao abrir o arquivo para limpar os personagens escolhidos!" << endl;

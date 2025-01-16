@@ -1,6 +1,8 @@
 #include <fstream>
 #include <vector>
 #include "../Personagens/Personagem.h"
+#include <ostream>
+#include <string>
 
 // Função para salvar personagens escolhidos em um arquivo
 void limparArquivoPersonagensEscolhidos() {
@@ -10,22 +12,23 @@ void limparArquivoPersonagensEscolhidos() {
         return;
     }
     arquivo.close();
-    cout << "Arquivo de personagens escolhidos foi limpo!" << endl;
+    std::wcout << "Arquivo de personagens escolhidos foi limpo!" << std::endl;
 }
+;
 
 void salvarPersonagensEscolhidos(const vector<Personagem*>& personagens) {
     ofstream arquivo("personagensEscolhidos.txt"); // Cria ou abre o arquivo
 
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo para salvar os personagens!" << endl;
+        cerr << "Erro ao abrir o arquivo para salvar os personagens!" << std::endl;
         return;
     }
 
     // Grava o nome de cada personagem no arquivo
     for (const auto& personagem : personagens) {
-        arquivo << personagem->getNome() << endl;
+        arquivo << personagem->get_nome() << endl;
     }
 
     arquivo.close();
-    cout << "Personagens escolhidos salvos com sucesso!" << endl;
+    std::wcout << "Personagens escolhidos salvos com sucesso!" << std::endl;
 }

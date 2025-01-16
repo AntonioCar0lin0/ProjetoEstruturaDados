@@ -111,35 +111,35 @@ void IniciarJogo::escolherPersonagens(){
     personagensEscolhidos.clear();
 
     do {
-        cout << endl;
-        cout << "***Escolha seus Personagens***" << endl;
-        cout << "******* *No máximo 3* ********" << endl;
-        cout << endl;
+        std::wcout << endl;
+        std::wcout << "***Escolha seus Personagens***" << std::endl;
+        std::wcout << "******* *No máximo 3* ********" << std::endl;
+        std::wcout << endl;
 
         for (size_t i = 0; i < personagens.size(); i++){
-            cout << i + 1 << ". ";
+            std::wcout << i + 1 << ". " << std::endl;
             personagens[i]->mostrarCaracteristicas();
-            cout << endl; 
+            std::wcout << std::endl;
         }
-        cout << personagens.size() + 1 << ". Finalizar Escolha" << endl;
-        cout << personagens.size() + 2 << ". Voltar ao Menu Principal" << endl;
-        cout << endl;
+        std::wcout << personagens.size() + 1 << ". Finalizar Escolha" << std::endl;
+        std::wcout << personagens.size() + 2 << ". Voltar ao Menu Principal" << std::endl;
+        std::wcout << std::endl;
 
         if (!personagensEscolhidos.empty()){
-            cout << ">>Personagens escolhidos até agora:" << endl;
+            std::wcout << ">>Personagens escolhidos até agora:" << std::endl;
             for (const auto& p : personagensEscolhidos){
-                cout << "- " << p->get_nome() << endl;
+                std::wcout << "- " << p->get_nome() << std::endl;
             }
-            cout << endl;
+            std::wcout << endl;
         }
 
-        cout << ">>Escolha um personagem: ";
+        std::wcout << ">>Escolha um personagem: " << std::endl;
         cin >> escolha;
 
         if (cin.fail()){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Entrada inválida! Por favor, insira um número válido." << endl;
+            std::wcout << "Entrada inválida! Por favor, insira um número válido." << std::endl;
             continue;
         }
 
@@ -147,20 +147,20 @@ void IniciarJogo::escolherPersonagens(){
             auto personagemEscolhido = personagens[escolha - 1];
             if(any_of(personagensEscolhidos.begin(), personagensEscolhidos.end(),
                 [personagemEscolhido](const Personagem* p) { return p == personagemEscolhido; })){
-                cout << "Este personagem já foi escolhido! Tente outro." << endl;
+                std::wcout << "Este personagem já foi escolhido! Tente outro." << std::endl;
             } 
             else{
                 personagensEscolhidos.push_back(personagemEscolhido);
-                cout << personagemEscolhido->get_nome() << " foi escolhido!" << endl;
+                std::wcout << personagemEscolhido->get_nome() << " foi escolhido!" << std::endl;
             }
         } 
         else if(escolha == (int)personagens.size() + 1){
             if(!personagensEscolhidos.empty()){
-                cout << "Finalizando escolha..." << endl;
+                std::wcout << "Finalizando escolha..." << std::endl;
                 break;
             } 
             else{
-                cout << "Você precisa escolher pelo menos 1 personagem para finalizar!" << endl;
+                std::wcout << "Você precisa escolher pelo menos 1 personagem para finalizar!" << std::endl;
             }
         } 
         else if(escolha == (int)personagens.size() + 2){
@@ -170,12 +170,12 @@ void IniciarJogo::escolherPersonagens(){
             return;
         } 
         else{
-            cout << "Opção inválida! Tente novamente." << endl;
+            std::wcout << "Opção inválida! Tente novamente." << std::endl;
         }
     } while (escolha != (int)personagens.size() + 2 && personagensEscolhidos.size() < 3);
 
-    cout << endl;
-    cout << "Sua Equipe:" << endl;
+    std::wcout << std::endl;
+    std::wcout << "Sua Equipe:" << std::endl;
     for(const auto& p : personagensEscolhidos){
         p->mostrarCaracteristicas();
     }
@@ -187,36 +187,36 @@ void IniciarJogo::escolherItens(){
     vector<Personagem*> personagensEscolhidos = carregarPersonagensEscolhidos();
     
     if(personagensEscolhidos.empty()){
-        cout << "Você precisa escolher seus personagens antes de escolher os itens!" << endl;
+        std::wcout << "Você precisa escolher seus personagens antes de escolher os itens!" << std::endl;
         return;
     }
 
     bool confirmar = false;
     do{
         for(auto& personagem : personagensEscolhidos){
-            cout << endl;
-            cout << "Escolha os itens para " << personagem->getNome() << ":" << endl;
+            std::wcout << endl;
+            std::wcout << "Escolha os itens para " << personagem->get_nome() << ":" << std::endl;
             const auto& itens = personagem->getItens();
 
             for (size_t i = 0; i < itens.size(); i++){
-                cout << i + 1 << ". ";
+                std::wcout << i + 1 << ". " << std::endl;
                 itens[i].mostrarDetalhes();
             }
-            cout << itens.size() + 1 << ". Voltar ao Menu Principal" << endl;
+            std::wcout << itens.size() + 1 << ". Voltar ao Menu Principal" << std::endl;
 
             int escolha;
-            cout << "Escolha um item: ";
+            std::wcout << "Escolha um item: " << std::endl;
             cin >> escolha;
 
             if(cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Entrada inválida! Por favor, insira um número válido." << endl;
+                std::wcout << "Entrada inválida! Por favor, insira um número válido." << std::endl;
                 continue;
             }
 
             if(escolha >= 1 && escolha <= (int)itens.size()){
-                cout << personagem->getNome() << " recebeu o item: ";
+                std::wcout << personagem->get_nome() << " recebeu o item: " << std::endl;
                 itens[escolha - 1].mostrarDetalhes();
             }
             else if(escolha == (int)itens.size() + 1){
@@ -226,16 +226,16 @@ void IniciarJogo::escolherItens(){
                 return;
             }
             else{
-                cout << "Opção inválida! Tente novamente." << endl;
+                std::wcout << "Opção inválida! Tente novamente." << std::endl;
             }
         }
 
-        cout << endl;
-        cout << "Deseja confirmar os itens escolhidos?" << endl;
-        cout << "1. Sim" << endl;
-        cout << "2. Não" << endl;
-        cout << endl;
-        cout << ">>Escolha uma opção: " << endl;
+        std::wcout << std::endl;
+        std::wcout << "Deseja confirmar os itens escolhidos?" << std::endl;
+        std::wcout << "1. Sim" << std::endl;
+        std::wcout << "2. Não" << std::endl;
+        std::wcout << std::endl;
+        std::wcout << ">>Escolha uma opção: " << std::endl;
         int confirmacao;
         cin >> confirmacao;
 
@@ -247,6 +247,6 @@ void IniciarJogo::escolherItens(){
 
 //implementar depois
 void IniciarJogo::iniciarAventura(){
-    cout << "Iniciando aventura..." << endl;
-    cout << endl;
+    std::wcout << "Iniciando aventura..." << std::endl;
+    std::wcout << std::endl;
 }

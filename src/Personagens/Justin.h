@@ -9,9 +9,9 @@
 class Justin : public Personagem {
     public:
     Justin()
-        : Personagem("Justin", 100, 4, 9, 6, 10, 7 ){
-        adicionarItem(Item("Walkie Talkie", "Carisma", 6));
-        adicionarItem(Item("Taco de Beisebol", "Força", 6));
+        : Personagem(L"Justin", 100, 4, 9, 6, 10, 7 ){
+        adicionarItem(Item(L"Walkie Talkie", L"Carisma", 6));
+        adicionarItem(Item(L"Taco de Beisebol", L"Força", 6));
         }
 
 };

@@ -10,9 +10,9 @@
 class Mike : public Personagem {
 public:
     Mike()
-        : Personagem("Mike", 100, 3, 10, 8, 8, 7) {
-        adicionarItem(Item("Lanterna", "Reflexo", 6));
-        adicionarItem(Item("Mapa de Hawkins", "Inteligência", 6));
+        : Personagem(L"Mike", 100, 3, 10, 8, 8, 7) {
+        adicionarItem(Item(L"Lanterna", L"Reflexo", 6));
+        adicionarItem(Item(L"Mapa de Hawkins", L"Inteligência", 6));
     }
 };
 

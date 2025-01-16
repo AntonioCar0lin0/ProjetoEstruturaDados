@@ -6,17 +6,14 @@
 
 // Função para salvar personagens escolhidos em um arquivo
 void limparArquivoPersonagensEscolhidos() {
-
-    ofstream arquivo("personagensEscolhidos.txt", ios::trunc); // Modo trunc limpa o conteúdo
+    std::ofstream arquivo("personagensEscolhidos.txt", std::ios::trunc); // Modo trunc limpa o conteúdo
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo para limpar os personagens escolhidos!" << endl;
+        std::cerr << "Erro ao abrir o arquivo para limpar os personagens escolhidos!" << std::endl;
         return;
     }
     arquivo.close();
-    std::wcout << "Arquivo de personagens escolhidos foi limpo!" << std::endl;
+    std::wcout << L"Arquivo de personagens escolhidos foi limpo!" << std::endl;
 }
-;
-
 void salvarPersonagensEscolhidos(const std::vector<Personagem*>& personagens) {
     // Usar std::wofstream para lidar com std::wstring
     std::wofstream arquivo("personagensEscolhidos.txt", std::ios::out | std::ios::trunc);

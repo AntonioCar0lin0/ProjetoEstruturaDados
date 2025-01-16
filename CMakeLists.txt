@@ -22,4 +22,5 @@ add_executable(ProjetoEstruturaDados
     src/main.cpp
     src/main.h
     src/controllers/IniciarJogo.cpp
-    src/controllers/MenuInicial.cpp)
+    src/controllers/MenuInicial.cpp
+    src/Personagens/Personagem.cpp)

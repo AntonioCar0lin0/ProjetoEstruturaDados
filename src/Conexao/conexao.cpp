@@ -16,19 +16,23 @@ void limparArquivoPersonagensEscolhidos() {
 }
 ;
 
-void salvarPersonagensEscolhidos(const vector<Personagem*>& personagens) {
-    ofstream arquivo("personagensEscolhidos.txt"); // Cria ou abre o arquivo
+void salvarPersonagensEscolhidos(const std::vector<Personagem*>& personagens) {
+    // Usar std::wofstream para lidar com std::wstring
+    std::wofstream arquivo("personagensEscolhidos.txt", std::ios::out | std::ios::trunc);
+
+    // Configurar a localidade para suportar Unicode (UTF-8)
+    arquivo.imbue(std::locale(""));
 
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo para salvar os personagens!" << std::endl;
+        std::wcerr << L"Erro ao abrir o arquivo para salvar os personagens!" << std::endl;
         return;
     }
 
     // Grava o nome de cada personagem no arquivo
     for (const auto& personagem : personagens) {
-        arquivo << personagem->get_nome() << endl;
+        arquivo << personagem->get_nome() << std::endl;
     }
 
     arquivo.close();
-    std::wcout << "Personagens escolhidos salvos com sucesso!" << std::endl;
+    std::wcout << L"Personagens escolhidos salvos com sucesso!" << std::endl;
 }

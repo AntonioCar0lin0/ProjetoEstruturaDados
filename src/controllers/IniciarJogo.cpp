@@ -116,8 +116,8 @@ void IniciarJogo::escolherPersonagens(){
 
     do {
         std::wcout << endl;
-        std::wcout << "***Escolha seus Personagens***" << std::endl;
-        std::wcout << "******* *No máximo 3* ********" << std::endl;
+        std::wcout << L"***Escolha seus Personagens***" << std::endl;
+        std::wcout << L"******* *No máximo 3* ********" << std::endl;
         std::wcout << endl;
 
         for (size_t i = 0; i < personagens.size(); i++){
@@ -125,25 +125,25 @@ void IniciarJogo::escolherPersonagens(){
             personagens[i]->mostrarCaracteristicas();
             std::wcout << std::endl;
         }
-        std::wcout << personagens.size() + 1 << ". Finalizar Escolha" << std::endl;
-        std::wcout << personagens.size() + 2 << ". Voltar ao Menu Principal" << std::endl;
+        std::wcout << personagens.size() + 1 << L". Finalizar Escolha" << std::endl;
+        std::wcout << personagens.size() + 2 << L". Voltar ao Menu Principal" << std::endl;
         std::wcout << std::endl;
 
         if (!personagensEscolhidos.empty()){
-            std::wcout << ">>Personagens escolhidos:" << std::endl;
+            std::wcout << L">>Personagens escolhidos:" << std::endl;
             for (const auto& p : personagensEscolhidos){
                 std::wcout << "- " << p->get_nome() << std::endl;
             }
             std::wcout << endl;
         }
 
-        std::wcout << ">>Escolha um personagem: " << std::endl;
+        std::wcout << L">>Escolha um personagem: " << std::endl;
         cin >> escolha;
 
         if (cin.fail()){
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            std::wcout << "Entrada inválida! Por favor, insira um número válido." << std::endl;
+            std::wcout << L"Entrada inválida! Por favor, insira um número válido." << std::endl;
             continue;
         }
 
@@ -151,20 +151,20 @@ void IniciarJogo::escolherPersonagens(){
             auto personagemEscolhido = personagens[escolha - 1];
             if(any_of(personagensEscolhidos.begin(), personagensEscolhidos.end(),
                 [personagemEscolhido](const Personagem* p) { return p == personagemEscolhido; })){
-                std::wcout << "Este personagem já foi escolhido! Tente outro." << std::endl;
+                std::wcout << L"Este personagem já foi escolhido! Tente outro." << std::endl;
             } 
             else{
                 personagensEscolhidos.push_back(personagemEscolhido);
-                std::wcout << personagemEscolhido->get_nome() << " foi escolhido!" << std::endl;
+                std::wcout << personagemEscolhido->get_nome() << L" foi escolhido!" << std::endl;
             }
         } 
         else if(escolha == (int)personagens.size() + 1){
             if(!personagensEscolhidos.empty()){
-                std::wcout << "Finalizando escolha..." << std::endl;
+                std::wcout << L"Finalizando escolha..." << std::endl;
                 break;
             } 
             else{
-                std::wcout << "Você precisa escolher pelo menos 1 personagem para finalizar!" << std::endl;
+                std::wcout << L"Você precisa escolher pelo menos 1 personagem para finalizar!" << std::endl;
             }
         } 
         else if(escolha == (int)personagens.size() + 2){
@@ -174,12 +174,12 @@ void IniciarJogo::escolherPersonagens(){
             return;
         } 
         else{
-            std::wcout << "Opção inválida! Tente novamente." << std::endl;
+            std::wcout << L"Opção inválida! Tente novamente." << std::endl;
         }
     } while (escolha != (int)personagens.size() + 2 && personagensEscolhidos.size() < 3);
 
     std::wcout << std::endl;
-    std::wcout << "Sua Equipe:" << std::endl;
+    std::wcout << L"Sua Equipe:" << std::endl;
     for(const auto& p : personagensEscolhidos){
         p->mostrarCaracteristicas();
     }
@@ -193,7 +193,7 @@ void IniciarJogo::escolherItens(){
     vector<Personagem*> personagensEscolhidos = carregarPersonagensEscolhidos();
     
     if(personagensEscolhidos.empty()){
-        std::wcout << "Você precisa escolher seus personagens antes de escolher os itens!" << std::endl;
+        std::wcout << L"Você precisa escolher seus personagens antes de escolher os itens!" << std::endl;
         return;
     }
 
@@ -201,28 +201,28 @@ void IniciarJogo::escolherItens(){
     do{
         for(auto& personagem : personagensEscolhidos){
             std::wcout << endl;
-            std::wcout << "Escolha os itens para " << personagem->get_nome() << ":" << std::endl;
+            std::wcout << L"Escolha os itens para " << personagem->get_nome() << ":" << std::endl;
             const auto& itens = personagem->getItens();
 
             for (size_t i = 0; i < itens.size(); i++){
                 std::wcout << i + 1 << ". " << std::endl;
                 itens[i].mostrarDetalhes();
             }
-            std::wcout << itens.size() + 1 << ". Voltar ao Menu Principal" << std::endl;
+            std::wcout << itens.size() + 1 << L". Voltar ao Menu Principal" << std::endl;
 
             int escolha;
-            std::wcout << "Escolha um item: " << std::endl;
+            std::wcout << L"Escolha um item: " << std::endl;
             cin >> escolha;
 
             if(cin.fail()){
                 cin.clear();
                 cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                std::wcout << "Entrada inválida! Por favor, insira um número válido." << std::endl;
+                std::wcout << L"Entrada inválida! Por favor, insira um número válido." << std::endl;
                 continue;
             }
 
             if(escolha >= 1 && escolha <= (int)itens.size()){
-                std::wcout << personagem->get_nome() << " recebeu o item: " << std::endl;
+                std::wcout << personagem->get_nome() << L" recebeu o item: " << std::endl;
                 itens[escolha - 1].mostrarDetalhes();
             }
             else if(escolha == (int)itens.size() + 1){
@@ -232,16 +232,16 @@ void IniciarJogo::escolherItens(){
                 return;
             }
             else{
-                std::wcout << "Opção inválida! Tente novamente." << std::endl;
+                std::wcout << L"Opção inválida! Tente novamente." << std::endl;
             }
         }
 
         std::wcout << std::endl;
-        std::wcout << "Deseja confirmar os itens escolhidos?" << std::endl;
-        std::wcout << "1. Sim" << std::endl;
-        std::wcout << "2. Não" << std::endl;
+        std::wcout << L"Deseja confirmar os itens escolhidos?" << std::endl;
+        std::wcout << L"1. Sim" << std::endl;
+        std::wcout << L"2. Não" << std::endl;
         std::wcout << std::endl;
-        std::wcout << ">>Escolha uma opção: " << std::endl;
+        std::wcout << L">>Escolha uma opção: " << std::endl;
         int confirmacao;
         cin >> confirmacao;
 
@@ -255,6 +255,6 @@ void IniciarJogo::escolherItens(){
 void IniciarJogo::iniciarAventura(){
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
-    std::wcout << "Iniciando aventura..." << std::endl;
+    std::wcout << L"Iniciando aventura..." << std::endl;
     std::wcout << std::endl;
 }

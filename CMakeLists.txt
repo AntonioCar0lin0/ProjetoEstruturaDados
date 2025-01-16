@@ -7,18 +7,20 @@ include_directories(.)
 include_directories(Personagens)
 
 add_executable(ProjetoEstruturaDados
-    scr/Personagens/Demobat.h
-    scr/Personagens/Demodog.h
-    scr/Personagens/Demogorgon.h
-    scr/Personagens/DevoradorDeMentes.h
-    scr/Personagens/Eleven.h
-    scr/Personagens/Justin.h
-    scr/Personagens/Lucas.h
-    scr/Personagens/Max.h
-    scr/Personagens/Mike.h
-    scr/Personagens/Personagem.h
-    scr/Personagens/Vecna.h
-    scr/Personagens/Will.h
+    src/Personagens/Demobat.h
+    src/Personagens/Demodog.h
+    src/Personagens/Demogorgon.h
+    src/Personagens/DevoradorDeMentes.h
+    src/Personagens/Eleven.h
+    src/Personagens/Justin.h
+    src/Personagens/Lucas.h
+    src/Personagens/Max.h
+    src/Personagens/Mike.h
+    src/Personagens/Personagem.h
+    src/Personagens/Vecna.h
+    src/Personagens/Will.h
     src/main.cpp
     src/main.h
-    src/controllers/IniciarJogo.cpp)
+    src/controllers/IniciarJogo.cpp
+    src/controllers/MenuInicial.cpp
+    src/Personagens/Personagem.cpp)

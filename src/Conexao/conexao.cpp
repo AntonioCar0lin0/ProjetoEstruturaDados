@@ -1,31 +1,36 @@
 #include <fstream>
 #include <vector>
 #include "../Personagens/Personagem.h"
+#include <ostream>
+#include <string>
 
 // Função para salvar personagens escolhidos em um arquivo
 void limparArquivoPersonagensEscolhidos() {
-    ofstream arquivo("personagensEscolhidos.txt", ios::trunc); // Modo trunc limpa o conteúdo
+    std::ofstream arquivo("personagensEscolhidos.txt", std::ios::trunc); // Modo trunc limpa o conteúdo
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo para limpar os personagens escolhidos!" << endl;
+        std::cerr << "Erro ao abrir o arquivo para limpar os personagens escolhidos!" << std::endl;
         return;
     }
     arquivo.close();
-    cout << "Arquivo de personagens escolhidos foi limpo!" << endl;
+    std::wcout << L"Arquivo de personagens escolhidos foi limpo!" << std::endl;
 }
+void salvarPersonagensEscolhidos(const std::vector<Personagem*>& personagens) {
+    // Usar std::wofstream para lidar com std::wstring
+    std::wofstream arquivo("personagensEscolhidos.txt", std::ios::out | std::ios::trunc);
 
-void salvarPersonagensEscolhidos(const vector<Personagem*>& personagens) {
-    ofstream arquivo("personagensEscolhidos.txt"); // Cria ou abre o arquivo
+    // Configurar a localidade para suportar Unicode (UTF-8)
+    arquivo.imbue(std::locale(""));
 
     if (!arquivo.is_open()) {
-        cerr << "Erro ao abrir o arquivo para salvar os personagens!" << endl;
+        std::wcerr << L"Erro ao abrir o arquivo para salvar os personagens!" << std::endl;
         return;
     }
 
     // Grava o nome de cada personagem no arquivo
     for (const auto& personagem : personagens) {
-        arquivo << personagem->getNome() << endl;
+        arquivo << personagem->get_nome() << std::endl;
     }
 
     arquivo.close();
-    cout << "Personagens escolhidos salvos com sucesso!" << endl;
+    std::wcout << L"Personagens escolhidos salvos com sucesso!" << std::endl;
 }

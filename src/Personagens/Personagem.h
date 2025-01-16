@@ -1,82 +1,54 @@
 #ifndef PERSONAGEM_H
 #define PERSONAGEM_H
 
-using namespace std;
-
 #include <string>
 #include <vector>
 #include "../Itens/Itens.h"
 
 class Personagem {
 protected:
-    string nome;
+    std::wstring nome; // Nome do personagem
     int vida;
     int forca;
     int inteligencia;
     int reflexo;
     int carisma;
     int instinto;
-    vector<Item> itens;
+    std::vector<Item> itens; // Itens do personagem
 
 public:
-    Personagem(string nome, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto)
-        : nome(nome), vida(vida), forca(forca), inteligencia(inteligencia), reflexo(reflexo), carisma(carisma),instinto(instinto) {}
+    // Construtor principal que aceita std::wstring
+    Personagem(std::wstring nome, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto);
 
+    // Construtor que aceita const char* para compatibilidade
+    Personagem(const char* str, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto);
+
+    // Destrutor virtual para garantir limpeza correta
     virtual ~Personagem() = default;
 
-    string get_nome() const { return nome; }
+    // Getters
+    std::wstring get_nome() const { return nome; }
     int get_vida() const { return vida; }
     int get_forca() const { return forca; }
     int get_inteligencia() const { return inteligencia; }
     int get_reflexo() const { return reflexo; }
     int get_carisma() const { return carisma; }
     int get_instinto() const { return instinto; }
+    std::vector<Item> getItens() const { return itens; }
 
-    string getNome() const {
-        return nome;
-    }
-    vector<Item> getItens() const {return itens;}
-    void adicionarItem(const Item& item) {itens.push_back(item);}
+    // Adiciona um item ao personagem
+    void adicionarItem(const Item& item) { itens.push_back(item); }
 
-    // Método para exibir as características do personagem
-    virtual void mostrarCaracteristicas() const {
-        cout << "Nome: " << nome << endl;
-        cout << "Vida: " << vida << endl;
-        cout << "Força: " << forca << endl;
-        cout << "Inteligência: " << inteligencia << endl;
-        cout << "Reflexo: " << reflexo << endl;
-        cout << "Carisma: " << carisma << endl;
-        cout << "Instinto: " << instinto << endl;;
-        cout << endl;
-    }
+    // Método virtual para exibir características (podem ser sobrescritas nas subclasses)
+    virtual void mostrarCaracteristicas() const;
 
-// Ações dos personagens (adicionar mais depois)
-//    virtual void atacar(Personagem& outro) = 0;
-//    virtual void apresentar() const = 0;
-
-    int getVida() const {
-        return vida;
-    }
-
-    int getForca() const {
-        return forca;
-    }
-
-    int getInteligencia() const {
-        return inteligencia;
-    }
-
-    int getReflexo() const {
-        return reflexo;
-    }
-
-    int getCarisma() const {
-        return carisma;
-    }
-
-    int getInstinto() const {
-        return instinto;
-    }
+    // Getters auxiliares
+    int getVida() const { return vida; }
+    int getForca() const { return forca; }
+    int getInteligencia() const { return inteligencia; }
+    int getReflexo() const { return reflexo; }
+    int getCarisma() const { return carisma; }
+    int getInstinto() const { return instinto; }
 };
 
-#endif
+#endif // PERSONAGEM_H

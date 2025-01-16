@@ -4,24 +4,25 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
-class Item{
+class Item {
 private:
-    string nome;
-    string habilidade;
+    std::wstring nome;
+    std::wstring habilidade;
     int valor;
 
 public:
-    Item(string nome, string habilidade, int valor)
+    // Construtor
+    Item(const std::wstring& nome, const std::wstring& habilidade, int valor)
         : nome(nome), habilidade(habilidade), valor(valor) {}
 
-    string getNome() const { return nome; }
-    string getHabilidade() const { return habilidade; }
+
+    std::wstring getNome() const { return nome; }
+    std::wstring getHabilidade() const { return habilidade; }
     int getValor() const { return valor; }
 
+
     void mostrarDetalhes() const {
-        cout << nome << " (" << habilidade << " + " << valor << ")" << endl;
+        std::wcout << nome << L" (" << habilidade << L" + " << valor << L")" << std::endl;
     }
 };
 

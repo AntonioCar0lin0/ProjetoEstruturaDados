@@ -7,7 +7,7 @@
 //Classe responsável por iniciar o jogo
 class IniciarJogo {
 private:
-    vector<Personagem*> personagensEscolhidos;
+    std::vector<Personagem*> personagensEscolhidos;
 public:
     void exibirMenuIniciarJogo();
     void escolherPersonagens();

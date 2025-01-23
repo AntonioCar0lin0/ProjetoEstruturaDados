@@ -221,11 +221,15 @@ void IniciarJogo::escolherItens(){
                 continue;
             }
 
-            if(escolha >= 1 && escolha <= (int)itens.size()){
+            if(escolha >= 1 && escolha <= static_cast<int>(itens.size())){
+                const auto& itemEscolhido = itens[escolha - 1];
                 std::wcout << personagem->get_nome() << L" recebeu o item: " << std::endl;
                 itens[escolha - 1].mostrarDetalhes();
+
+                //adiciona pontos do item ao atributo
+                personagem->adicionarBonusItem(itemEscolhido);
             }
-            else if(escolha == (int)itens.size() + 1){
+            else if(escolha == static_cast<int>(itens.size() + 1)){
                 limparArquivoPersonagensEscolhidos();
                 MenuInicial menuInicial;
                 menuInicial.exibirMenuInicial();

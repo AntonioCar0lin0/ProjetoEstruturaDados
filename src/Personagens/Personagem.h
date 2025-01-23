@@ -49,6 +49,9 @@ public:
     int getReflexo() const { return reflexo; }
     int getCarisma() const { return carisma; }
     int getInstinto() const { return instinto; }
+
+    //adiciona bônus do item aos personagens
+    void adicionarBonusItem(const Item& item);
 };
 
 #endif // PERSONAGEM_H

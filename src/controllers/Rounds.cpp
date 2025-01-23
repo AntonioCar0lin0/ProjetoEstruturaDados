@@ -18,8 +18,12 @@ void Round::iniciar(std::vector<Personagem*>& personagens) {
         std::wcout << L"<<Sua Equipe>>" << std::endl;
         for (size_t j = 0; j < personagens.size(); ++j) {
             std::wcout << j + 1 << L". " << personagens[j]->get_nome()
-                       << L" (Vida: " << personagens[j]->getVida() << L")\n";
-        }
+               << L" (Vida: " << personagens[j]->getVida() << L", Força: " << personagens[j]->getAtributo(L"Força")
+               << L", Inteligência: " << personagens[j]->getAtributo(L"Inteligência")
+               << L", Reflexo: " << personagens[j]->getAtributo(L"Reflexo")
+               << L", Carisma: " << personagens[j]->getAtributo(L"Carisma")
+               << L", Instinto: " << personagens[j]->getAtributo(L"Instinto") << L")" << std::endl;
+}
 
         std::wcout << std::endl; // Adiciona uma linha em branco para espaçamento
 

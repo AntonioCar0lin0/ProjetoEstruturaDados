@@ -28,12 +28,22 @@ void Personagem::adicionarItem(const Item& item) {
 }
 
 void Personagem::adicionarBonusItem(const Item& item) {
-    if (item.getHabilidade() == L"Força") forca += item.getValor();
-    else if (item.getHabilidade() == L"Inteligência") inteligencia += item.getValor();
-    else if (item.getHabilidade() == L"Reflexo") reflexo += item.getValor();
-    else if (item.getHabilidade() == L"Carisma") carisma += item.getValor();
-    else if (item.getHabilidade() == L"Instinto") instinto += item.getValor();
+    const std::wstring& habilidade = item.getHabilidade();
+    if (habilidade == L"Força") {
+        forca += item.getValor();
+    } else if (habilidade == L"Inteligência") {
+        inteligencia += item.getValor();
+    } else if (habilidade == L"Reflexo") {
+        reflexo += item.getValor();
+    } else if (habilidade == L"Carisma") {
+        carisma += item.getValor();
+    } else if (habilidade == L"Instinto") {
+        instinto += item.getValor();
+    } else {
+        std::wcout << L"Erro: Habilidade desconhecida no item!\n";
+    }
 }
+
 
 void Personagem::mostrarCaracteristicas() const {
     std::wcout << L"Nome: " << nome << std::endl;

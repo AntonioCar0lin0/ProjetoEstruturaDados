@@ -32,5 +32,5 @@ void salvarPersonagensEscolhidos(const std::vector<Personagem*>& personagens) {
     }
 
     arquivo.close();
-    std::wcout << L"Personagens escolhidos salvos com sucesso!" << std::endl;
+    std::wcout << std::endl;
 }

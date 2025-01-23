@@ -85,6 +85,15 @@ build CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj: C
   TARGET_COMPILE_PDB = CMakeFiles\ProjetoEstruturaDados.dir\
   TARGET_PDB = ProjetoEstruturaDados.pdb
 
+build CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj: CXX_COMPILER__ProjetoEstruturaDados_unscanned_Debug C$:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/src/controllers/Rounds.cpp || cmake_object_order_depends_target_ProjetoEstruturaDados
+  DEP_FILE = CMakeFiles\ProjetoEstruturaDados.dir\src\controllers\Rounds.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/. -IC:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/Personagens
+  OBJECT_DIR = CMakeFiles\ProjetoEstruturaDados.dir
+  OBJECT_FILE_DIR = CMakeFiles\ProjetoEstruturaDados.dir\src\controllers
+  TARGET_COMPILE_PDB = CMakeFiles\ProjetoEstruturaDados.dir\
+  TARGET_PDB = ProjetoEstruturaDados.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProjetoEstruturaDados
@@ -93,7 +102,7 @@ build CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj: C
 #############################################
 # Link the executable ProjetoEstruturaDados.exe
 
-build ProjetoEstruturaDados.exe: CXX_EXECUTABLE_LINKER__ProjetoEstruturaDados_Debug CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj
+build ProjetoEstruturaDados.exe: CXX_EXECUTABLE_LINKER__ProjetoEstruturaDados_Debug CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ProjetoEstruturaDados.dir

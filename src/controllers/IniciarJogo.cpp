@@ -14,6 +14,7 @@
 #include "../Personagens/Justin.h"
 #include "../Personagens/Lucas.h"
 #include "../Personagens/Max.h"
+#include "../controllers/Rounds.h"
 #include <windows.h>
 #include <fcntl.h>
 #include <io.h>
@@ -63,18 +64,17 @@ void IniciarJogo::exibirMenuIniciarJogo(){
     int escolha;
     MenuInicial menuInicial;
     do{
-        std::wcout << L"******************" << std::endl;
-        std::wcout << L"***Iniciar Jogo***" << std::endl;
-        std::wcout << L"******************" << std::endl;
+        std::wcout << L"****************************" << std::endl;
+        std::wcout << L"********Iniciar Jogo********" << std::endl;
+        std::wcout << L"****************************" << std::endl;
         std::wcout << std::endl;
         std::wcout << L"1. Escolher Personagens" << std::endl;
         std::wcout << L"2. Escolher Itens" << std::endl;
         std::wcout << L"3. Iniciar Aventura" << std::endl;
         std::wcout << L"4. Voltar ao Menu" << std::endl;
         std::wcout << std::endl;
-        std::wcout << L"Escolha uma opção: " << std::endl;
+        std::wcout << L">>Escolha uma opção: ";
         cin >> escolha;
-
 
         switch(escolha){
             case 1:
@@ -87,7 +87,6 @@ void IniciarJogo::exibirMenuIniciarJogo(){
                 iniciarAventura();
                 break;
             case 4: {
-                //MenuInicial menuInicial;
                 menuInicial.exibirMenuInicial();
                 return;
             }
@@ -115,9 +114,8 @@ void IniciarJogo::escolherPersonagens(){
     personagensEscolhidos.clear();
 
     do {
-        std::wcout << endl;
-        std::wcout << L"***Escolha seus Personagens***" << std::endl;
-        std::wcout << L"******* *No máximo 3* ********" << std::endl;
+        std::wcout << L"****Escolha seus Personagens****" << std::endl;
+        std::wcout << L"**********(No máximo 3)*********" << std::endl;
         std::wcout << endl;
 
         for (size_t i = 0; i < personagens.size(); i++){
@@ -137,7 +135,7 @@ void IniciarJogo::escolherPersonagens(){
             std::wcout << endl;
         }
 
-        std::wcout << L">>Escolha um personagem: " << std::endl;
+        std::wcout << L">>Escolha um personagem: ";
         cin >> escolha;
 
         if (cin.fail()){
@@ -156,6 +154,7 @@ void IniciarJogo::escolherPersonagens(){
             else{
                 personagensEscolhidos.push_back(personagemEscolhido);
                 std::wcout << personagemEscolhido->get_nome() << L" foi escolhido!" << std::endl;
+                std::wcout << L"----------------------" << std::endl;
             }
         } 
         else if(escolha == (int)personagens.size() + 1){
@@ -179,7 +178,8 @@ void IniciarJogo::escolherPersonagens(){
     } while (escolha != (int)personagens.size() + 2 && personagensEscolhidos.size() < 3);
 
     std::wcout << std::endl;
-    std::wcout << L"Sua Equipe:" << std::endl;
+    std::wcout << L"<<Sua Equipe>>:" << std::endl;
+    std::wcout << std::endl;
     for(const auto& p : personagensEscolhidos){
         p->mostrarCaracteristicas();
     }
@@ -201,17 +201,20 @@ void IniciarJogo::escolherItens(){
     do{
         for(auto& personagem : personagensEscolhidos){
             std::wcout << endl;
-            std::wcout << L"Escolha os itens para " << personagem->get_nome() << ":" << std::endl;
+            std::wcout << L"<<Itens de " << personagem->get_nome() << ">>";
+            std::wcout << std::endl;
             const auto& itens = personagem->getItens();
 
             for (size_t i = 0; i < itens.size(); i++){
-                std::wcout << i + 1 << ". " << std::endl;
+                std::wcout << i + 1 << ". ";
                 itens[i].mostrarDetalhes();
             }
+            std::wcout << L"---------------------------" << std::endl;
             std::wcout << itens.size() + 1 << L". Voltar ao Menu Principal" << std::endl;
+            std::wcout << std::endl;
 
             int escolha;
-            std::wcout << L"Escolha um item: " << std::endl;
+            std::wcout << L">>Escolha um item: ";
             cin >> escolha;
 
             if(cin.fail()){
@@ -223,7 +226,7 @@ void IniciarJogo::escolherItens(){
 
             if(escolha >= 1 && escolha <= static_cast<int>(itens.size())){
                 const auto& itemEscolhido = itens[escolha - 1];
-                std::wcout << personagem->get_nome() << L" recebeu o item: " << std::endl;
+                std::wcout << L"<<" << personagem->get_nome() << L" recebeu o item: " << std::endl;
                 itens[escolha - 1].mostrarDetalhes();
 
                 //adiciona pontos do item ao atributo
@@ -245,7 +248,7 @@ void IniciarJogo::escolherItens(){
         std::wcout << L"1. Sim" << std::endl;
         std::wcout << L"2. Não" << std::endl;
         std::wcout << std::endl;
-        std::wcout << L">>Escolha uma opção: " << std::endl;
+        std::wcout << L">>Escolha uma opção: ";
         int confirmacao;
         cin >> confirmacao;
 
@@ -255,10 +258,38 @@ void IniciarJogo::escolherItens(){
     }while(!confirmar);
 }
 
-//implementar depois
-void IniciarJogo::iniciarAventura(){
+void IniciarJogo::iniciarAventura() {
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
-    std::wcout << L"Iniciando aventura..." << std::endl;
-    std::wcout << std::endl;
+
+    std::vector<Personagem*> personagens = carregarPersonagensEscolhidos();
+
+    if (personagens.empty()) {
+        std::wcout << L"Você precisa selecionar personagens antes de começar a aventura.\n";
+        return;
+    }
+
+    std::vector<std::wstring> desafios = {
+        L"Enfrentar os tentáculos do Devorador de Mentes",
+        L"Decodificar uma barreira psíquica",
+        L"Motivar o grupo a avançar"
+    };
+
+    std::vector<std::wstring> habilidades = {
+        L"Força", L"Inteligência", L"Carisma"
+    };
+
+    Round round1(
+        L"Shopping Starcourt: Enquanto você desce para o subsolo do antigo Shopping Starcourt, uma névoa densa e pulsante toma conta do ar. No centro do local, uma massa negra, viscosa e viva, se agita. É o Devorador de Mentes, estendendo tentáculos que chicoteiam pelo espaço, tentando impedir qualquer aproximação. Seu objetivo é destruir essa barreira viva para alcançar o primeiro selo e enfraquecer a conexão entre Hawkins e o Mundo Invertido.",
+        desafios,
+        habilidades
+    );
+
+    round1.iniciar(personagens);
+
+    if (personagens.empty()) {
+        std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+    } else {
+        std::wcout << L"Parabéns! Você completou o primeiro round.\n";
+    }
 }

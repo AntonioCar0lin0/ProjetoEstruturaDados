@@ -48,6 +48,7 @@ void MenuInicial::exibirMenuInicial() {
     setlocale(LC_ALL, "");
     int opcao;
     IniciarJogo iniciarJogo;
+    std::wcout << L"\n" << std::endl;
     std::wcout <<L"***********************************************"<< std::endl;
     std::wcout <<L"*************[APRESENTAÇÃO DO JOGO]************"<< std::endl;
     std::wcout <<L"***********************************************"<< std::endl;
@@ -59,6 +60,8 @@ void MenuInicial::exibirMenuInicial() {
         std::wcout << L"1. Iniciar o jogo" << std::endl;
         std::wcout << L"2. Instruções gerais" << std::endl;
         std::wcout << L"3. Sair" << std::endl;
+        std::wcout << std::endl;
+        std::wcout << L">>Escolha uma opção: ";
         cin >> opcao;
 
         switch(opcao) {

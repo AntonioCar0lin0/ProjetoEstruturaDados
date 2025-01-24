@@ -17,24 +17,21 @@ void exibirMenuInstrucoesGerais() {
         std::wcout << L"Instruções gerais" << std::endl;
         std::wcout << L"1. Objetivo do jogo" << std::endl;
         std::wcout << L"2. Jogabilidade" << std::endl;
-        std::wcout << L"3. Jogar tutorial" << std::endl;
-        std::wcout << L"4. Voltar ao menu inicial" << std::endl;
-        std::wcout << L"5. Sair" << std::endl;
+        std::wcout << L"3. Voltar ao menu inicial" << std::endl;
+        std::wcout << L"4. Sair" << std::endl;
         cin >> opcao;
         switch(opcao) {
             case 1:
-                std::wcout << L"[OBJETIVO DO JOGO] O grupo recebe pistas através de pesadelos compartilhados entre Will e Eleven..." << std::endl;
+                std::wcout << L"[OBJETIVO DO JOGO] O grupo recebe pistas através de pesadelos compartilhados entre Will e Eleven. Esses pesadelos revelam que o Abismo está quase completamente aberto, e com isso, o Devorador de Mentes poderá assumir forma física total no mundo real. " << std::endl;
+                std::wcout << L"Para evitar isso, os heróis devem localizar e destruir os quatro Selos do Abismo, escondidos em Hawkins e protegidos por monstros." << std::endl;
+                std::wcout << L"A missão é urgente, e as decisões tomadas podem influenciar profundamente o destino da cidade e dos personagens." << std::endl;
                 break;
             case 2:
-                std::wcout << L"[JOGABILIDADE] O jogo será dividido em turnos, o jogador poderá escolher três personagens..." << std::endl;
+                std::wcout << L"[JOGABILIDADE] O jogo será dividido em turnos, onde o jogador poderá controlar três personagens do grupo em cada turno. Cada personagem possui habilidades únicas e atributos que podem ser usados estrategicamente para atacar, defender-se ou usar habilidades especiais. O progresso será baseado em decisões, combates e a resolução de enigmas, com um sistema que incorpora evolução de personagens e ganho de experiência. Além disso, o jogo apresenta um inventário limitado, cenários únicos e desafios crescentes à medida que a trama se desenvolve." << std::endl;
                 break;
             case 3:
-                //exibirTutorial();
-                break;
-            case 4:
-
                 return;
-            case 5:
+            case 4:
                 break;
             default:
                 std::wcout << L"Opção inválida!" << std:: endl;

@@ -4,6 +4,7 @@
 
 //main teste
 int main() {
+    std::wcout.imbue(std::locale(""));
     MenuInicial menuInicial;
     menuInicial.exibirMenuInicial();
 

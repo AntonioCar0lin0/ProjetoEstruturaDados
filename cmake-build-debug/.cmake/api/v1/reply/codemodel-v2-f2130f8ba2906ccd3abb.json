@@ -39,7 +39,11 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ProjetoEstruturaDados::@6890427a1f51a3e7e1df",
+<<<<<<<< HEAD:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-25fa18027aa1c9c02a26.json
 					"jsonFile" : "target-ProjetoEstruturaDados-Debug-431d0e1603f36a54dec3.json",
+========
+					"jsonFile" : "target-ProjetoEstruturaDados-Debug-fcc71125844a4958c608.json",
+>>>>>>>> 4fc4c9da4a89e78002bd7ccbbcb7e7ffb9dbb8d8:cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-f2130f8ba2906ccd3abb.json
 					"name" : "ProjetoEstruturaDados",
 					"projectIndex" : 0
 				}

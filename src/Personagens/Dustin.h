@@ -6,10 +6,10 @@
 #define DUSTIN_H
 
 #include "Personagem.h"
-class Justin : public Personagem {
+class Dustin : public Personagem {
     public:
-    Justin()
-        : Personagem(L"Justin", 100, 4, 9, 6, 10, 7 ){
+    Dustin()
+        : Personagem(L"Dustin", 100, 4, 9, 6, 10, 7 ){
         adicionarItem(Item(L"Walkie Talkie", L"Carisma", 6));
         adicionarItem(Item(L"Taco de Beisebol", L"Força", 6));
         }

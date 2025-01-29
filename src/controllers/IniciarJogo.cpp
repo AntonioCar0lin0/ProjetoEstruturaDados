@@ -64,6 +64,10 @@ void IniciarJogo::exibirMenuIniciarJogo(){
     setlocale(LC_ALL, "");
     int escolha;
     MenuInicial menuInicial;
+
+    bool personagensEscolhidos = false;
+    bool itensEscolhidos = false;
+
     do{
         std::wcout << L"****************************" << std::endl;
         std::wcout << L"********Iniciar Jogo********" << std::endl;
@@ -80,17 +84,28 @@ void IniciarJogo::exibirMenuIniciarJogo(){
         switch(escolha){
             case 1:
                 escolherPersonagens();
+                personagensEscolhidos = true;
                 break;
             case 2:
-                escolherItens();
+                if (!personagensEscolhidos) {
+                    std::wcout << L"Você precisa escolher os personagens antes de selecionar os itens!" << std::endl;
+                } else {
+                    escolherItens();
+                    itensEscolhidos = true;
+                }
                 break;
             case 3:
-                iniciarAventura();
+                if (!personagensEscolhidos) {
+                    std::wcout << L"Você precisa escolher seus personagens antes de iniciar a aventura!" << std::endl;
+                } else if (!itensEscolhidos) {
+                    std::wcout << L"Você precisa escolher e confirmar seus itens antes de iniciar a aventura!" << std::endl;
+                } else {
+                    iniciarAventura();
+                }
                 break;
-            case 4: {
+            case 4:
                 menuInicial.exibirMenuInicial();
                 return;
-            }
             default:
                 std::wcout << L"Opção inválida! Tente novamente." << std:: endl;
                 break;

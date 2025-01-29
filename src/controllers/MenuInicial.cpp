@@ -7,6 +7,7 @@
 #include <fcntl.h>
 #include <io.h>
 #include <clocale>
+#include <limits>
 using namespace std;
 
 void exibirMenuInstrucoesGerais() {
@@ -19,25 +20,35 @@ void exibirMenuInstrucoesGerais() {
         std::wcout << L"2. Jogabilidade" << std::endl;
         std::wcout << L"3. Voltar ao menu inicial" << std::endl;
         std::wcout << L"4. Sair" << std::endl;
+        std::wcout << L">>Escolha uma opção: ";
         cin >> opcao;
+
+
         switch(opcao) {
             case 1:
-                std::wcout << L"[OBJETIVO DO JOGO] O grupo recebe pistas através de pesadelos compartilhados entre Will e Eleven. Esses pesadelos revelam que o Abismo está quase completamente aberto, e com isso, o Devorador de Mentes poderá assumir forma física total no mundo real. " << std::endl;
+                std::wcout << L"[OBJETIVO DO JOGO] O grupo recebe pistas através de pesadelos compartilhados entre Will e Eleven. "<< std::endl;
+                std::wcout << L"Esses pesadelos revelam que o Abismo está quase completamente aberto, e com isso, o Devorador de Mentes poderá assumir forma física total no mundo real."<< std::endl;
                 std::wcout << L"Para evitar isso, os heróis devem localizar e destruir os quatro Selos do Abismo, escondidos em Hawkins e protegidos por monstros." << std::endl;
                 std::wcout << L"A missão é urgente, e as decisões tomadas podem influenciar profundamente o destino da cidade e dos personagens." << std::endl;
                 break;
             case 2:
-                std::wcout << L"[JOGABILIDADE] O jogo será dividido em turnos, onde o jogador poderá controlar três personagens do grupo em cada turno. Cada personagem possui habilidades únicas e atributos que podem ser usados estrategicamente para atacar, defender-se ou usar habilidades especiais. O progresso será baseado em decisões, combates e a resolução de enigmas, com um sistema que incorpora evolução de personagens e ganho de experiência. Além disso, o jogo apresenta um inventário limitado, cenários únicos e desafios crescentes à medida que a trama se desenvolve." << std::endl;
+                std::wcout << L"[JOGABILIDADE] O jogo será dividido em turnos, onde o jogador poderá controlar três personagens do grupo em cada turno. " << std::endl;
+                std::wcout << L"Cada personagem possui habilidades únicas e atributos que podem ser usados estrategicamente para atacar, defender-se ou usar habilidades especiais." << std::endl;
+                std::wcout << L"O progresso será baseado em decisões, combates e a resolução de enigmas, com um sistema que incorpora evolução e ganho  de experiência." << std::endl;
+                std::wcout << L"Além disso, o jogo apresenta um inventário limitado, cenários únicos e desafios crescentes ." << std::endl;
                 break;
             case 3:
                 return;
             case 4:
+                cout << "Saindo do jogo..." << endl;
+                exit(0);
                 break;
             default:
                 std::wcout << L"Opção inválida!" << std:: endl;
+                exit(0);
                 break;
         };
-    } while (opcao != 5);
+    } while (opcao != 4);
 }
 
 void MenuInicial::exibirMenuInicial() {
@@ -76,6 +87,7 @@ void MenuInicial::exibirMenuInicial() {
                 break;
             default:
                 cout << "Opção inválida!" << endl;
+                exit(0);
                 break;
         };
     } while (opcao != 3);

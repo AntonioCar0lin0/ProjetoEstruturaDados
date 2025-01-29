@@ -12,7 +12,7 @@
 #include "../Personagens/Eleven.h"
 #include "../Personagens/Mike.h"
 #include "../Personagens/Will.h"
-#include "../Personagens/Justin.h"
+#include "../Personagens/Dustin.h"
 #include "../Personagens/Lucas.h"
 #include "../Personagens/Max.h"
 #include "../controllers/Rounds.h"
@@ -44,8 +44,8 @@ vector<Personagem*> carregarPersonagensEscolhidos(){
         else if(nome == "Will"){
             personagens.push_back(new Will());
         }
-        else if(nome == "Justin"){
-            personagens.push_back(new Justin());
+        else if(nome == "Dustin"){
+            personagens.push_back(new Dustin());
         }
         else if(nome == "Lucas"){
             personagens.push_back(new Lucas());
@@ -105,7 +105,7 @@ void IniciarJogo::escolherPersonagens(){
         new Eleven(),
         new Mike(),
         new Will(),
-        new Justin(),
+        new Dustin(),
         new Lucas(),
         new Max()
     };

@@ -12,7 +12,7 @@ add_executable(ProjetoEstruturaDados
     src/Personagens/Demogorgon.h
     src/Personagens/DevoradorDeMentes.h
     src/Personagens/Eleven.h
-    src/Personagens/Justin.h
+        src/Personagens/Dustin.h
     src/Personagens/Lucas.h
     src/Personagens/Max.h
     src/Personagens/Mike.h

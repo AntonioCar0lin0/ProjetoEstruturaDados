@@ -15,13 +15,25 @@ void Personagem::receberDano(int dano) {
 }
 
 int Personagem::getAtributo(const std::wstring& habilidade) const {
-    if (habilidade == L"Força") return forca;
-    if (habilidade == L"Inteligência") return inteligencia;
-    if (habilidade == L"Reflexo") return reflexo;
-    if (habilidade == L"Carisma") return carisma;
-    if (habilidade == L"Instinto") return instinto;
-    return 0; // Retorna 0 se a habilidade não for encontrada
+    int base = 0;
+
+    if (habilidade == L"Força") base = forca;
+    else if (habilidade == L"Inteligência") base = inteligencia;
+    else if (habilidade == L"Reflexo") base = reflexo;
+    else if (habilidade == L"Carisma") base = carisma;
+    else if (habilidade == L"Instinto") base = instinto;
+    else return 0;
+
+
+    for (const auto& item : itens) {
+        if (item.getHabilidade() == habilidade) {
+            base += item.getValor();
+        }
+    }
+
+    return base;
 }
+
 
 void Personagem::adicionarItem(const Item& item) {
     itens.push_back(item);

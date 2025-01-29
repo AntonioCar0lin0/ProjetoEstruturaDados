@@ -1,14 +1,9 @@
 # ninja log v6
-46	801	7598048879013392	CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj	c7257dacf6255c8b
-63	2389	7598048879185212	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	f00c5448588b2226
-2943	3229	7598745638603468	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49
-7	2942	7598745609240839	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
-69	910	7598048879250529	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	d15f0beaf0439bcb
-76	858	7598048879315687	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	7e8c8344031bd811
-34	482	7598751921263138	build.ninja	5ac7053d5da1db4a
-10	1197	7598756028990066	CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj	9c6003082f055af6
-1201	2662	7598756040903588	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	a50b8aeed09d5c93
-2663	4042	7598756055525905	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	153cec299d4cbce
-25	4302	7598756029146240	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	c6065a5795b96cf
-17	5314	7598756029061063	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	c94993aee56f69de
-5314	5732	7598756082038713	ProjetoEstruturaDados.exe	f9f90474ff72228f
+130	3926	7598770948195392	CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj	c7257dacf6255c8b
+698	3940	7598770953868946	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	7e8c8344031bd811
+507	4032	7598770951968124	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	d15f0beaf0439bcb
+419	7788	7598770951085461	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	f00c5448588b2226
+139	8893	7598770948280727	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
+8894	9597	7598771035828723	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49
+87	1073	7598782922038079	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	d15f0beaf0439bcb
+1073	1444	7598782931892421	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49

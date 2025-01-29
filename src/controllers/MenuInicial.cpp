@@ -19,6 +19,7 @@ void exibirMenuInstrucoesGerais() {
         std::wcout << L"2. Jogabilidade" << std::endl;
         std::wcout << L"3. Voltar ao menu inicial" << std::endl;
         std::wcout << L"4. Sair" << std::endl;
+        std::wcout << L">>Escolha uma opção: ";
         cin >> opcao;
         switch(opcao) {
             case 1:
@@ -32,6 +33,8 @@ void exibirMenuInstrucoesGerais() {
             case 3:
                 return;
             case 4:
+                cout << "Saindo do jogo..." << endl;
+                exit(0);
                 break;
             default:
                 std::wcout << L"Opção inválida!" << std:: endl;

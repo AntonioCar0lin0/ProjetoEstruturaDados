@@ -24,7 +24,6 @@ int Personagem::getAtributo(const std::wstring& habilidade) const {
     else if (habilidade == L"Instinto") base = instinto;
     else return 0;
 
-
     for (const auto& item : itens) {
         if (item.getHabilidade() == habilidade) {
             base += item.getValor();

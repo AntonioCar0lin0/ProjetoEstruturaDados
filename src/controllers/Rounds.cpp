@@ -9,12 +9,10 @@ void Round::iniciar(std::vector<Personagem*>& personagens) {
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
 
-    std::wcout << L"\n===== " << descricao << L" =====\n" << std::endl;
+    std::wcout << L"\n=====" << descricao << L"=====\n" << std::endl;
 
     for (size_t i = 0; i < desafios.size(); ++i) {
         std::wcout << L"Desafio: " << desafios[i] << L" (Habilidade: " << habilidades[i] << L")\n" << std::endl;
-
-        // Mostrar personagens disponíveis antes da escolha
         std::wcout << L"<<Sua Equipe>>" << std::endl;
         for (size_t j = 0; j < personagens.size(); ++j) {
             std::wcout << j + 1 << L". " << personagens[j]->get_nome()
@@ -25,9 +23,7 @@ void Round::iniciar(std::vector<Personagem*>& personagens) {
                << L", Instinto: " << personagens[j]->getAtributo(L"Instinto") << L")" << std::endl;
 }
 
-        std::wcout << std::endl; // Adiciona uma linha em branco para espaçamento
-
-        // Solicitar escolha do personagem
+        std::wcout << std::endl;
         std::wcout << L">>Escolha um personagem para batalhar nesse desafio: ";
         int escolha;
         std::cin >> escolha;
@@ -38,17 +34,19 @@ void Round::iniciar(std::vector<Personagem*>& personagens) {
         }
 
         Personagem* personagemEscolhido = personagens[escolha - 1];
-        int dado = rand() % 20 + 1; // Rolagem de 1 a 20
-        int resultado = (personagemEscolhido->getAtributo(habilidades[i]) + dado) / 3;
+        int dado = rand() % 20 + 1;
+        int atributoPersonagem = personagemEscolhido->getAtributo(habilidades[i]);
 
-        // Formatação ajustada para atender à solicitação
+        int resultado = (atributoPersonagem + dado) / 3;
+
         std::wcout << L"--Rolagem de dado: " << dado << std::endl;
         std::wcout << L"--Atributo: " << personagemEscolhido->getAtributo(habilidades[i]) << std::endl;
-        std::wcout << std::endl; // Linha em branco para espaçamento
+        std::wcout << std::endl;
         std::wcout << L"--Resultado: " << resultado << std::endl;
 
         if (resultado > 5) {
-            std::wcout << personagemEscolhido->get_nome() << L" completou o desafio!\n";
+            std::wcout << std::endl;
+            std::wcout << personagemEscolhido->get_nome() << L" completou o desafio após muito esforço. Continue assim!\n";
         } else {
             personagemEscolhido->receberDano(40);
             std::wcout << personagemEscolhido->get_nome() << L" falhou no desafio e sofreu 40 de dano\n";
@@ -58,12 +56,16 @@ void Round::iniciar(std::vector<Personagem*>& personagens) {
         std::wcout << std::endl;
 
         if (personagemEscolhido->getVida() <= 0) {
-            std::wcout << personagemEscolhido->get_nome() << L" morreu!\n";
+            std::wcout << personagemEscolhido->get_nome() << L" ficou enfraquecido demais e morreu! A equipe se abala muito, mas não pode deixar de seguir em frente. É questão de honra!\n";
             personagens.erase(personagens.begin() + (escolha - 1));
         }
 
         if (personagens.empty()) {
-            std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+            static bool jaExibiuMensagem = false;
+            if (!jaExibiuMensagem) {
+                std::wcout << L"Todos os personagens morreram. A névoa escura do Mundo Invertido dominou Hawkins e a população se encontra em um estado de calamidade.\n";
+                jaExibiuMensagem = true;
+            }
             return;
         }
     }

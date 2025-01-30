@@ -69,6 +69,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
     bool itensEscolhidos = false;
 
     do{
+        std::wcout << std::endl;
         std::wcout << L"****************************" << std::endl;
         std::wcout << L"********Iniciar Jogo********" << std::endl;
         std::wcout << L"****************************" << std::endl;
@@ -130,8 +131,7 @@ void IniciarJogo::escolherPersonagens(){
     personagensEscolhidos.clear();
 
     do {
-        std::wcout << L"****Escolha seus Personagens****" << std::endl;
-        std::wcout << L"**********(No máximo 3)*********" << std::endl;
+        std::wcout << L"****Escolha seus 3 Personagens****" << std::endl;
         std::wcout << endl;
 
         for (size_t i = 0; i < personagens.size(); i++){
@@ -139,8 +139,7 @@ void IniciarJogo::escolherPersonagens(){
             personagens[i]->mostrarCaracteristicas();
             std::wcout << std::endl;
         }
-        std::wcout << personagens.size() + 1 << L". Finalizar Escolha" << std::endl;
-        std::wcout << personagens.size() + 2 << L". Voltar ao Menu Principal" << std::endl;
+        std::wcout << personagens.size() + 1 << L". Voltar ao Menu Principal" << std::endl;
         std::wcout << std::endl;
 
         if (!personagensEscolhidos.empty()){
@@ -173,25 +172,13 @@ void IniciarJogo::escolherPersonagens(){
                 std::wcout << L"----------------------" << std::endl;
             }
         }
-        else if(escolha == (int)personagens.size() + 1){
-            if(!personagensEscolhidos.empty()){
-                std::wcout << L"Finalizando escolha..." << std::endl;
-                break;
-            }
-            else{
-                std::wcout << L"Você precisa escolher pelo menos 1 personagem para finalizar!" << std::endl;
-            }
-        }
-        else if(escolha == (int)personagens.size() + 2){
-            limparArquivoPersonagensEscolhidos();
-            MenuInicial menuInicial;
-            menuInicial.exibirMenuInicial();
-            return;
-        }
-        else{
+        else {
             std::wcout << L"Opção inválida! Tente novamente." << std::endl;
         }
-    } while (escolha != (int)personagens.size() + 2 && personagensEscolhidos.size() < 3);
+    }while ( personagensEscolhidos.size() < 3);
+
+    std::wcout << L"Você escolheu seus 3 personagens! Prosseguindo..." << std::endl;
+    std::wcout << std::endl;
 
     std::wcout << std::endl;
     std::wcout << L"<<Sua Equipe>>:" << std::endl;
@@ -211,10 +198,11 @@ void IniciarJogo::escolherItens() {
 
     if (personagensEscolhidos.empty()) {
         std::wcout << L"Você precisa escolher seus personagens antes de escolher os itens!" << std::endl;
+        std::wcout << std::endl;
         return;
     }
 
-    std::map<std::wstring, std::vector<Item>> itensEscolhidosPorPersonagem; // Map para armazenar os itens escolhidos por personagem
+    std::map<std::wstring, std::vector<Item>> itensEscolhidosPorPersonagem;
 
     bool confirmar = false;
     do {
@@ -249,10 +237,8 @@ void IniciarJogo::escolherItens() {
                 std::wcout << L"<<" << personagem->get_nome() << L" recebeu o item: " << std::endl;
                 itemEscolhido.mostrarDetalhes();
 
-                // Adiciona o item ao map de itens escolhidos
                 itensEscolhidosPorPersonagem[personagem->get_nome()].push_back(itemEscolhido);
 
-                // Adiciona pontos do item ao atributo
                 personagem->adicionarBonusItem(itemEscolhido);
             } else if (escolha == static_cast<int>(itens.size() + 1)) {
                 limparArquivoPersonagensEscolhidos();
@@ -265,8 +251,6 @@ void IniciarJogo::escolherItens() {
         }
 
         std::wcout << std::endl;
-
-        // Mostrar apenas os itens escolhidos para cada personagem
         std::wcout << L"<<Resumo dos Personagens e Itens Escolhidos>>" << std::endl;
         for (const auto& personagem : personagensEscolhidos) {
             std::wcout << L"Personagem: " << personagem->get_nome() << std::endl;
@@ -284,7 +268,6 @@ void IniciarJogo::escolherItens() {
             std::wcout << L"---------------------------" << std::endl;
         }
 
-        // Confirmação final
         std::wcout << L"Deseja confirmar os itens escolhidos?" << std::endl;
         std::wcout << L"1. Sim" << std::endl;
         std::wcout << L"2. Não" << std::endl;
@@ -309,6 +292,7 @@ void IniciarJogo::iniciarAventura() {
 
     if (personagens.empty()) {
         std::wcout << L"Você precisa selecionar personagens antes de começar a aventura.\n";
+        std::wcout << std::endl;
         return;
     }
 
@@ -324,7 +308,7 @@ void IniciarJogo::iniciarAventura() {
     };
 
     Round round1(
-        L"Shopping Starcourt: Enquanto você desce para o subsolo do antigo Shopping Starcourt, uma névoa densa e pulsante toma conta do ar. No centro do local, uma massa negra, viscosa e viva, se agita. É o Devorador de Mentes, estendendo tentáculos que chicoteiam pelo espaço, tentando impedir qualquer aproximação. Seu objetivo é destruir essa barreira viva para alcançar o primeiro selo e enfraquecer a conexão entre Hawkins e o Mundo Invertido.",
+        L"Shopping Starcourt: Enquanto você desce para o subsolo do antigo Shopping Starcourt, uma névoa densa e escura toma conta do ar. No centro do local, uma massa negra e viva se agita. É o Devorador de Mentes, estendendo tentáculos que chicoteiam pelo espaço, tentando impedir qualquer aproximação. Seu objetivo é destruir essa barreira viva para alcançar o primeiro selo e enfraquecer a conexão entre Hawkins e o Mundo Invertido.",
         desafios,
         habilidades
     );
@@ -332,10 +316,10 @@ void IniciarJogo::iniciarAventura() {
     round1.iniciar(personagens);
 
     if (personagens.empty()) {
-        std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+        std::wcout << L"Todos os personagens morreram. A névoa escura do Mundo Invertido dominou Hawkins e a população se encontra em um estado de calamidade.\n";
     } else {
-        std::wcout << L"Parabéns! Você completou o primeiro round.\n";
-        std::wcout << L"E conseguiu o primeiro selo!\n";
+        std::wcout << L"Parabéns! A equipe completou o primeiro desafio após derrotar o gigante Devorador de Mentes.\n";
+        std::wcout << L"Pegue seu primeiro Selo do Abismo e siga em frente para próximos desafios!\n";
     }
 
     //RODADA 2
@@ -346,7 +330,7 @@ void IniciarJogo::iniciarAventura() {
     };
 
     std::vector<std::wstring> habilidadesRound2 = {
-        L"Força", L"Reflexo", L"Instinto "
+        L"Força", L"Reflexo", L"Instinto"
     };
 
     Round round2(
@@ -358,10 +342,11 @@ void IniciarJogo::iniciarAventura() {
     round2.iniciar(personagens);
 
     if (personagens.empty()) {
-        std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+        std::wcout << L"Todos os personagens morreram. A névoa escura do Mundo Invertido dominou Hawkins e a população se encontra em um estado de calamidade.\n";
     } else {
-        std::wcout << L"Parabéns! Você completou o segundo round.\n";
-        std::wcout << L"E conseguiu o segundo selo!\n";
+        std::wcout << L"Sua equipe conseguiu sobreviver aos ataques dos amedrontadores Demogorgons.\n";
+        std::wcout << L"Sigam em busca dos últimos dois Selos do Abismo!\n";
+        std::wcout << std::endl;
     }
 
     //RODADA 3
@@ -372,7 +357,7 @@ void IniciarJogo::iniciarAventura() {
     };
 
     std::vector<std::wstring> habilidadesRound3 = {
-        L"Reflexo", L"Instinto", L"Inteligência "
+        L"Reflexo", L"Instinto", L"Inteligência"
     };
 
     Round round3(
@@ -384,11 +369,12 @@ void IniciarJogo::iniciarAventura() {
     round3.iniciar(personagens);
 
     if (personagens.empty()) {
-        std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+        std::wcout << L"Todos os personagens morreram. A névoa escura do Mundo Invertido dominou Hawkins e a população se encontra em um estado de calamidade.\n";
         return;
     } else {
-        std::wcout << L"Parabéns! Você completou o terceiro round e ganhou o terceiro selo.\n";
-        std::wcout << L"Vamos lá! Você está a uma rodada de salvar Hawkins!\n";
+        std::wcout << L"Após muitos desafios, sua equipe derrotou os Demodogs e coletou o penúltimo Selo do Abismo.\n";
+        std::wcout << L"Vamos lá! Você está a uma rodada de salvar Hawkins! Mas cuidado, o que vem a seguir não é fácil!\n";
+        std::wcout << std::endl;
     }
 
     //RODADA 4
@@ -399,7 +385,7 @@ void IniciarJogo::iniciarAventura() {
     };
 
     std::vector<std::wstring> habilidadesRound4 = {
-        L"Carisma", L"Instinto", L"Força "
+        L"Carisma", L"Instinto", L"Força"
     };
 
     Round round4(
@@ -411,15 +397,15 @@ void IniciarJogo::iniciarAventura() {
     round4.iniciar(personagens);
 
     if (personagens.empty()) {
-        std::wcout << L"Todos os personagens morreram. O jogo terminou.\n";
+        std::wcout << L"Todos os personagens morreram. A névoa escura do Mundo Invertido dominou Hawkins e a população se encontra em um estado de calamidade.\n";
         return;
     } else {
-        std::wcout << L"Parabéns, você venceu o Vecna e o Mundo Invertido começa a desmoronar.\n";
+        std::wcout << L"Parabéns, você venceu o Vecna e o Mundo Invertido começa a desmoronar. A névoa se dissipam no ar e as Criaturas finalmente desaparecem.\n";
         std::wcout << L"Hawkins agora agracede à sua perseverança e está segura do mal\n";
         std::wcout << L"(Por enquanto...)\n";
+        std::wcout << std::endl;
     }
 
-    // Finaliza o jogo
     std::wcout << L"\nJogo encerrado. Obrigado por jogar!\n";
     exit(0);
 }

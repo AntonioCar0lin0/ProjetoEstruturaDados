@@ -1,4 +1,5 @@
 # **Projeto RPG - Stranger Things**
+Projeto da disciplina de Estrutura de Dados Orientada a Objetos, no Centro de Informática da Universidade de Pernambuco, ministrada pelo Professor Francisco Paulo Magalhães. O objetivo do trabalho era realizar um projeto utilizando a linguagem de programação C++, aplicando os conceitos vistos em sala, tais como: lógica da programação em c++, conceitos da programação orientada a objetos (herança, polimorfismo, encapsulamento) e o CRUD (Create, Read, Update & Delete) informações de um banco de dados. 
 
 ## 🎮 Sobre o Jogo
 Neste jogo de RPG baseado no universo de *Stranger Things*, você assume o papel de um grupo de três personagens que enfrentará desafios sobrenaturais para impedir que Hawkins seja consumida pelo *Mundo Invertido*. Para isso, será necessário derrotar monstros, superar enigmas e coletar os **Selos do Abismo**, impedindo que Vecna conquiste o mundo real.
@@ -18,12 +19,50 @@ O jogo se desenvolve em quatro rodadas, onde cada desafio requer o uso estratég
 ---
 
 ## 📃 Estrutura do Projeto
-O código do jogo segue uma estrutura organizada em **MVC (Model-View-Controller)** para facilitar a manutenção e expansão futura.
-
-ProjetoRPG/ ├── src/ │ ├── controllers/ │ │ ├── IniciarJogo.cpp │ │ ├── MenuInicial.cpp │ │ ├── Rounds.cpp │ ├── models/ │ │ ├── Personagem.cpp │ │ ├── Itens.cpp │ ├── views/ │ │ ├── ExibirMenu.cpp │ ├── main.cpp
+O código do jogo segue uma estrutura organizada em uma variação do modelo **MVC (Model-View-Controller)** para facilitar a manutenção e expansão futura. No caso do código, a lógica da View está misturada Controller. 
+Abaixo você pode conferir uma prévia da organização do código: 
+```
+📂 src/
+├── 📂 controllers/
+│   ├── 📄 IniciarJogo.cpp
+│   ├── 📄 IniciarJogo.h
+│   ├── 📄 MenuInicial.cpp
+│   ├── 📄 MenuInicial.h
+│   ├── 📄 Rounds.cpp
+│   ├── 📄 Rounds.h
+├── 📂 models/
+│   ├── 📄 Dustin.h
+│   ├── 📄 Eleven.h
+│   ├── 📄 Lucas.h
+│   ├── 📄 Max.h
+│   ├── 📄 Mike.h
+│   ├── 📄 Personagem.cpp
+│   ├── 📄 Personagem.h
+│   ├── 📄 Will.h
+├── 📂 utils/
+│   ├── 📄 conexao.cpp
+│   ├── 📄 conexao.h
+├── 📂 data/
+│   ├── 📄 personagensEscolhidos.txt
+├── 📂 Itens/
+│   ├── 📄 Itens.h
+└── 📄 main.cpp
+```
 
 ---
+## 🎮Jogabilidade 
+---
+## Menu Inicial 
+![Menu Inicial](https://media.discordapp.net/attachments/1211775373038059521/1334670256114892920/image.png?ex=679d600a&is=679c0e8a&hm=8972979c004ef80acec5c96e70411b924ae9a58f9aedf3df79487bcdec6b8afb&=&format=webp&quality=lossless&width=1440&height=563)
 
+# Menu de Instruções Gerais
+![Menu de Instruções Gerais](https://media.discordapp.net/attachments/1211775373038059521/1334670645786837002/image.png?ex=679d6066&is=679c0ee6&hm=c11133c5ed72730d4236fb204664e4b13f569246e90b2e7e63146346b7e8ef7b&=&format=webp&quality=lossless&width=540&height=207)
+
+## Menu Iniciar Jogo
+![Menu Iniciar Jogo](https://media.discordapp.net/attachments/1211775373038059521/1334670863139864668/image.png?ex=679d609a&is=679c0f1a&hm=733fc4126c229361916819ebec908195775646e942f95db5d38366da6ffe07ff&=&format=webp&quality=lossless&width=400&height=283)
+
+Interessado em mais? É só jogar o nosso jogo!!!
+---
 ## 🔥 Rodadas e Desafios
 - O jogo é dividido em **4 rodadas**, cada uma contendo **3 desafios diferentes**. O jogador deve utilizar **estratégia** para escolher qual personagem enfrentará cada desafio.
 
@@ -128,7 +167,11 @@ Clique em Run para compilar e executar o jogo.
 ---
 
 ## 📌 **Créditos e Autoria** ##
-- Projeto desenvolvido por Luiza Trigueiro e Antonio Carolino, inspirado no universo da série Stranger Things.
+Nomes   | Github
+--------- | ------
+Antonio Carolino | [AntonioCar0lin0](https://github.com/AntonioCar0lin0)
+Luiza Trigueiro | [luizatrigueiro](https://github.com/luizatrigueiro)
+---
 
 ---
 

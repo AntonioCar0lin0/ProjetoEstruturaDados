@@ -2,8 +2,9 @@
 #define CONEXAO_H
 
 #include <vector>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 
+using namespace std;
 void salvarPersonagensEscolhidos(const vector<Personagem*>& personagens);
 vector<Personagem*> carregarPersonagensEscolhidos();
 void limparArquivoPersonagensEscolhidos(); 

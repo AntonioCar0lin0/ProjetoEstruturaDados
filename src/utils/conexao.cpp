@@ -1,6 +1,6 @@
 #include <fstream>
 #include <vector>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 #include <ostream>
 #include <string>
 

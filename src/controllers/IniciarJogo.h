@@ -2,7 +2,7 @@
 #define INICIAR_JOGO_H
 
 #include <vector>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 
 class IniciarJogo {
 private:

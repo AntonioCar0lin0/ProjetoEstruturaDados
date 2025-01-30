@@ -7,12 +7,12 @@
 
 class Round {
 private:
-    std::wstring descricao; // Descrição do round
-    std::vector<std::wstring> desafios; // Lista de desafios
-    std::vector<std::wstring> habilidades; // Habilidades necessárias para os desafios
+    std::wstring descricao;
+    std::vector<std::wstring> desafios;
+    std::vector<std::wstring> habilidades;
 
 public:
-    // Construtor
+
     Round(const std::wstring& descricao, const std::vector<std::wstring>& desafios, const std::vector<std::wstring>& habilidades)
         : descricao(descricao), desafios(desafios), habilidades(habilidades) {}
 

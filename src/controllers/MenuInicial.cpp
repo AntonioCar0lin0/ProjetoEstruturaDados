@@ -7,7 +7,6 @@
 #include <fcntl.h>
 #include <io.h>
 #include <clocale>
-#include <limits>
 using namespace std;
 
 void exibirMenuInstrucoesGerais() {

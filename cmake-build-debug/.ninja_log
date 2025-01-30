@@ -3,7 +3,7 @@
 34	685	7599777150268718	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	7e8c8344031bd811
 25	718	7599777150208711	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	d15f0beaf0439bcb
 19	1964	7599777150128710	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	f00c5448588b2226
-13	2438	7599777150058409	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
-2438	2703	7599777174314308	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49
 14	3004	7599777971909561	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
 3005	3231	7599778001826601	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49
+34	431	7599780663609770	build.ninja	5ac7053d5da1db4a
+4	273	7599780663609770	build.ninja	5ac7053d5da1db4a

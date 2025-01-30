@@ -4,7 +4,6 @@
 #include <vector>
 #include "../Personagens/Personagem.h"
 
-//Classe responsável por iniciar o jogo
 class IniciarJogo {
 private:
     std::vector<Personagem*> personagensEscolhidos;

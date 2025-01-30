@@ -1,6 +1,5 @@
 #include "Personagem.h"
 #include <iostream>
-#include <cstring>
 
 Personagem::Personagem(std::wstring nome, int vida, int forca, int inteligencia, int reflexo, int carisma, int instinto)
     : nome(std::move(nome)), vida(vida), forca(forca), inteligencia(inteligencia), reflexo(reflexo), carisma(carisma), instinto(instinto) {}

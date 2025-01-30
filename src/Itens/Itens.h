@@ -11,7 +11,6 @@ private:
     int valor;
 
 public:
-    // Construtor
     Item(const std::wstring& nome, const std::wstring& habilidade, int valor)
         : nome(nome), habilidade(habilidade), valor(valor) {}
 

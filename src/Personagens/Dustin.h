@@ -1,7 +1,3 @@
-//
-// Created by anton on 02/01/2025.
-//
-
 #ifndef DUSTIN_H
 #define DUSTIN_H
 

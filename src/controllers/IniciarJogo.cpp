@@ -208,7 +208,7 @@ void IniciarJogo::escolherItens() {
     do {
         for (auto& personagem : personagensEscolhidos) {
             std::wcout << endl;
-            std::wcout << L"<<Menu de item" << personagem->get_nome() << ">>";
+            std::wcout << L"<<Menu do item de: " << personagem->get_nome() << ">>";
             std::wcout << std::endl;
 
             const auto& itens = personagem->getItens();

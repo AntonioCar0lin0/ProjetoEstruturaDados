@@ -10,12 +10,7 @@ bin/
 *.lib
 *.dll
 *.dylib
-# Diretórios de build do CMake
-/cmake-build-debug/
-/CMakeCache.txt
-/CMakeFiles/
-/build/
-/CMakeLists.txt.user
+
 
 # Ignorar logs e arquivos temporários
 *.log

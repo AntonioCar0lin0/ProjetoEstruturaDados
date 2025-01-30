@@ -1,9 +1,11 @@
 # ninja log v6
-7	634	7599777150005770	CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj	c7257dacf6255c8b
-34	685	7599777150268718	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	7e8c8344031bd811
-25	718	7599777150208711	CMakeFiles/ProjetoEstruturaDados.dir/src/Personagens/Personagem.cpp.obj	d15f0beaf0439bcb
-19	1964	7599777150128710	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	f00c5448588b2226
-14	3004	7599777971909561	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
+38	842	7599797776449194	CMakeFiles/ProjetoEstruturaDados.dir/src/models/Personagem.cpp.obj	9a4000096472ca6f
+17	668	7599797776248232	CMakeFiles/ProjetoEstruturaDados.dir/src/main.cpp.obj	c7257dacf6255c8b
+44	832	7599797776519248	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/Rounds.cpp.obj	7e8c8344031bd811
+32	2416	7599797776389204	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/MenuInicial.cpp.obj	f00c5448588b2226
+24	2943	7599797776319237	CMakeFiles/ProjetoEstruturaDados.dir/src/controllers/IniciarJogo.cpp.obj	79e8f228609426e2
 3005	3231	7599778001826601	ProjetoEstruturaDados.exe	5d51f0a09fa5fe49
-34	431	7599780663609770	build.ninja	5ac7053d5da1db4a
-4	273	7599780663609770	build.ninja	5ac7053d5da1db4a
+23	415	7599799374574233	build.ninja	5ac7053d5da1db4a
+10	374	7599799374574233	build.ninja	5ac7053d5da1db4a
+6	545	7599799375124163	CMakeFiles/ProjetoEstruturaDados.dir/src/utils/conexao.cpp.obj	3ea1b4029bd3924b
+546	791	7599799380518485	ProjetoEstruturaDados.exe	28c721aa1255ae36

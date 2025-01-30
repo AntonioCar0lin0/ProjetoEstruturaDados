@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 
 class Round {
 private:

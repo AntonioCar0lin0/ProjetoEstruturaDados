@@ -7,19 +7,20 @@
 #include <vector>
 #include <algorithm>
 #include "MenuInicial.h"
-#include "../Conexao/conexao.cpp"
-#include "../Personagens/Personagem.h"
-#include "../Personagens/Eleven.h"
-#include "../Personagens/Mike.h"
-#include "../Personagens/Will.h"
-#include "../Personagens/Dustin.h"
-#include "../Personagens/Lucas.h"
-#include "../Personagens/Max.h"
+#include "../utils/conexao.h"
+#include "../models/Personagem.h"
+#include "../models/Eleven.h"
+#include "../models/Mike.h"
+#include "../models/Will.h"
+#include "../models/Dustin.h"
+#include "../models/Lucas.h"
+#include "../models/Max.h"
 #include "../controllers/Rounds.h"
 #include <windows.h>
 #include <fcntl.h>
 #include <io.h>
 #include <clocale>
+#include <fstream>
 using namespace std;
 
 vector<Personagem*> carregarPersonagensEscolhidos(){

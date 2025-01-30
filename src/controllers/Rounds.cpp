@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <iostream>
 #include <cstdlib>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 
 void Round::iniciar(std::vector<Personagem*>& personagens) {
     _setmode(_fileno(stdout), _O_U8TEXT);

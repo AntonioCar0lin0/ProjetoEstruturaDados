@@ -75,7 +75,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
         std::wcout << L"****************************" << std::endl;
         std::wcout << std::endl;
         std::wcout << L"1. Escolher Personagens" << std::endl;
-        std::wcout << L"2. Escolher Itens" << std::endl;
+        std::wcout << L"2. Visualizar/Selecionar item" << std::endl;
         std::wcout << L"3. Iniciar Aventura" << std::endl;
         std::wcout << L"4. Voltar ao Menu" << std::endl;
         std::wcout << std::endl;
@@ -89,7 +89,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
                 break;
             case 2:
                 if (!personagensEscolhidos) {
-                    std::wcout << L"Você precisa escolher os personagens antes de selecionar os itens!" << std::endl;
+                    std::wcout << L"Você precisa escolher os personagens antes de selecionar seu item" << std::endl;
                 } else {
                     escolherItens();
                     itensEscolhidos = true;
@@ -99,7 +99,7 @@ void IniciarJogo::exibirMenuIniciarJogo(){
                 if (!personagensEscolhidos) {
                     std::wcout << L"Você precisa escolher seus personagens antes de iniciar a aventura!" << std::endl;
                 } else if (!itensEscolhidos) {
-                    std::wcout << L"Você precisa escolher e confirmar seus itens antes de iniciar a aventura!" << std::endl;
+                    std::wcout << L"Você precisa escolher e visualizar seu itenm antes de iniciar a aventura!" << std::endl;
                 } else {
                     iniciarAventura();
                 }
@@ -197,7 +197,7 @@ void IniciarJogo::escolherItens() {
     vector<Personagem*> personagensEscolhidos = carregarPersonagensEscolhidos();
 
     if (personagensEscolhidos.empty()) {
-        std::wcout << L"Você precisa escolher seus personagens antes de escolher os itens!" << std::endl;
+        std::wcout << L"Você precisa escolher seus personagens antes de selecionar seu item" << std::endl;
         std::wcout << std::endl;
         return;
     }
@@ -208,7 +208,7 @@ void IniciarJogo::escolherItens() {
     do {
         for (auto& personagem : personagensEscolhidos) {
             std::wcout << endl;
-            std::wcout << L"<<Escolha de Itens para " << personagem->get_nome() << ">>";
+            std::wcout << L"<<Menu de item" << personagem->get_nome() << ">>";
             std::wcout << std::endl;
 
             const auto& itens = personagem->getItens();
@@ -217,12 +217,11 @@ void IniciarJogo::escolherItens() {
                 itens[i].mostrarDetalhes();
             }
 
-            std::wcout << L"---------------------------" << std::endl;
             std::wcout << itens.size() + 1 << L". Voltar ao Menu Principal" << std::endl;
             std::wcout << std::endl;
 
             int escolha;
-            std::wcout << L">>Escolha um item: ";
+            std::wcout << L">>Selecione a opção: ";
             cin >> escolha;
 
             if (cin.fail()) {
@@ -262,13 +261,11 @@ void IniciarJogo::escolherItens() {
                     std::wcout << L"- ";
                     item.mostrarDetalhes();
                 }
-            } else {
-                std::wcout << L"Sem itens escolhidos." << std::endl;
             }
             std::wcout << L"---------------------------" << std::endl;
         }
 
-        std::wcout << L"Deseja confirmar os itens escolhidos?" << std::endl;
+        std::wcout << L"Deseja confirmar o item escolhido" << std::endl;
         std::wcout << L"1. Sim" << std::endl;
         std::wcout << L"2. Não" << std::endl;
         std::wcout << std::endl;

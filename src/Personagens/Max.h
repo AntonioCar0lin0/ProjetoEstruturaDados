@@ -11,7 +11,6 @@ class Max : public Personagem {
     public:
     Max()
         : Personagem(L"Max", 100, 4, 9, 8, 7, 8 ) {
-        adicionarItem(Item(L"Bússola", L"Inteligência", 6));
         adicionarItem(Item(L"Skate", L"Reflexo", 6));
     }
 };

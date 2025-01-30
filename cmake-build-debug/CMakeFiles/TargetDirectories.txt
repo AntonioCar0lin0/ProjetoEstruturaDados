@@ -1,3 +1,0 @@
-C:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/cmake-build-debug/CMakeFiles/ProjetoEstruturaDados.dir
-C:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/luiza/OneDrive/Documentos/GitHub/ProjetoEstruturaDados/cmake-build-debug/CMakeFiles/rebuild_cache.dir

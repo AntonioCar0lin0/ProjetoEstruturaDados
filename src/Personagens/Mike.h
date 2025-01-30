@@ -12,7 +12,6 @@ public:
     Mike()
         : Personagem(L"Mike", 100, 3, 10, 8, 8, 7) {
         adicionarItem(Item(L"Lanterna", L"Reflexo", 6));
-        adicionarItem(Item(L"Mapa de Hawkins", L"Inteligência", 6));
     }
 };
 

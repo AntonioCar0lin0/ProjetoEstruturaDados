@@ -125,11 +125,10 @@ O jogo utiliza um **sistema de turnos baseado em rolagem de dados** para determi
 
 ---
 
-### **5️⃣ Uso de Arquivos para Persistência (CRUD)**
+### **5️⃣ Uso de Arquivos para armazenar os dados (CRUD)**
 Para manter as escolhas do jogador (como personagens escolhidos e itens equipados), utilizamos **arquivos de texto (`.txt`) para armazenar e recuperar informações**. Isso permite que **o jogo continue de onde parou**, garantindo que as escolhas do jogador **impactem as rodadas seguintes**.
 
-#### **🔄 Como duas funções realizam as quatro operações do CRUD?**
-Embora o CRUD geralmente seja implementado com quatro funções separadas (**Create, Read, Update, Delete**), no nosso jogo **apenas duas funções são suficientes para cumprir esses papéis**:
+**Embora o CRUD geralmente seja implementado com quatro funções separadas (**Create, Read, Update, Delete**), no nosso jogo apenas duas funções são suficientes para cumprir esses papéis:**
 
 1️⃣ **`salvarPersonagensEscolhidos()`**
 - **Create (Criar)**: Quando um novo conjunto de personagens é escolhido, essa função **cria** um arquivo e escreve os nomes dos personagens.

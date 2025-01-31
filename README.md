@@ -72,9 +72,9 @@ Interessado em mais? É só jogar o nosso jogo!!!
 - **Motivar o grupo a avançar** *(Carisma)* 
 
 ### **🌲 Rodada 2 - Floresta das Trevas**
-- **Abrir caminhos na floresta** *(Força - ND 13)*
-- **Distrair os Demogorgons** *(Reflexo - ND 15)* 
-- **Encontrar o selo entre as árvores** *(Instinto - ND 14)* 
+- **Abrir caminhos na floresta** *(Força)*
+- **Distrair os Demogorgons** *(Reflexo )* 
+- **Encontrar o selo entre as árvores** *(Instinto)* 
 
 ### **🔴 Rodada 3 - Mundo Invertido**
 - **Lutar contra os Demodogs** *(Reflexo)* 

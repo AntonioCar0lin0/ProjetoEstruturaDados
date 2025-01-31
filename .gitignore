@@ -11,6 +11,7 @@ bin/
 *.dll
 *.dylib
 
+
 # Ignorar logs e arquivos temporários
 *.log
 *.tmp

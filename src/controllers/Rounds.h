@@ -3,19 +3,21 @@
 
 #include <vector>
 #include <string>
-#include "../Personagens/Personagem.h"
+#include "../models/Personagem.h"
 
+//Classe para representar as rodadas
 class Round {
 private:
-    std::wstring descricao; // Descrição do round
-    std::vector<std::wstring> desafios; // Lista de desafios
-    std::vector<std::wstring> habilidades; // Habilidades necessárias para os desafios
+    std::wstring descricao;
+    std::vector<std::wstring> desafios;
+    std::vector<std::wstring> habilidades;
 
 public:
-    // Construtor
+    //Recebe a descrição da rodada, os desafios e os atributos necessários para conseguir
     Round(const std::wstring& descricao, const std::vector<std::wstring>& desafios, const std::vector<std::wstring>& habilidades)
         : descricao(descricao), desafios(desafios), habilidades(habilidades) {}
 
+    //Método que inicia a rodada
     void iniciar(std::vector<Personagem*>& personagens);
 };
 

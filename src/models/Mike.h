@@ -3,6 +3,7 @@
 
 #include "Personagem.h"
 
+//Classe que representa o personagem Mike no jogo e seus atributos
 class Mike : public Personagem {
 public:
     Mike()

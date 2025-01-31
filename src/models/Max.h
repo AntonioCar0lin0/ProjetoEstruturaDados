@@ -3,6 +3,7 @@
 
 #include "Personagem.h"
 
+//Classe que representa a personagem Max no jogo e seus atributos
 class Max : public Personagem {
     public:
     Max()

@@ -2,6 +2,8 @@
 #define LUCAS_H
 
 #include "Personagem.h"
+
+//Classe que representa o personagem Lucas no jogo e seus atributos
 class Lucas : public Personagem {
     public:
     Lucas()

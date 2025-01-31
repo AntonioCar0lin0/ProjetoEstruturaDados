@@ -3,6 +3,7 @@
 
 #include "Personagem.h"
 
+//Classe que representa a personagem Eleven no jogo e seus atributos
 class Eleven : public Personagem {
 public:
     Eleven()

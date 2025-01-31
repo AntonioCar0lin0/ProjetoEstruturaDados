@@ -2,7 +2,7 @@
 #include "controllers/MenuInicial.h"
 #include <iostream>
 
-//main teste
+//Função principal
 int main() {
     MenuInicial menuInicial;
     menuInicial.exibirMenuInicial();

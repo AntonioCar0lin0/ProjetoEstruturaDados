@@ -3,6 +3,7 @@
 
 #include "Personagem.h"
 
+//Classe que representa o personagem Will no jogo e seus atributos
 class Will : public Personagem {
 public:
     Will()

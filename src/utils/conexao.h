@@ -4,8 +4,12 @@
 #include <vector>
 #include "../models/Personagem.h"
 
-using namespace std;
-void salvarPersonagensEscolhidos(const vector<Personagem*>& personagens);
-vector<Personagem*> carregarPersonagensEscolhidos();
-void limparArquivoPersonagensEscolhidos(); 
+//Salva os personagens escolhidos em um arquivo
+void salvarPersonagensEscolhidos(const std::vector<Personagem*>& personagens);
+
+//Carrega os personagens escolhidos anteriormente
+std::vector<Personagem*> carregarPersonagensEscolhidos();
+
+//Limpa o arquivo de personagens escolhidos
+void limparArquivoPersonagensEscolhidos();
 #endif // CONEXAO_H

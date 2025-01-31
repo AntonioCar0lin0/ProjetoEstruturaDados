@@ -9,9 +9,12 @@
 #include <clocale>
 using namespace std;
 
+//Função que exibe as instruções gerais do jogo
 void exibirMenuInstrucoesGerais() {
+    //Configurando padrão de exibição de caracteres no terminal
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
+
     int opcao;
     do {
         std::wcout << L"Instruções gerais" << std::endl;
@@ -22,7 +25,7 @@ void exibirMenuInstrucoesGerais() {
         std::wcout << L">>Escolha uma opção: ";
         cin >> opcao;
 
-
+        //Definindo o que estará presente em cada opção do Menu de Instruções
         switch(opcao) {
             case 1:
                 std::wcout << L"[OBJETIVO DO JOGO] O grupo recebe pistas através de pesadelos compartilhados entre Will e Eleven. "<< std::endl;
@@ -50,6 +53,7 @@ void exibirMenuInstrucoesGerais() {
     } while (opcao != 4);
 }
 
+//Função principal que exibe o menu inicial do jogo
 void MenuInicial::exibirMenuInicial() {
     _setmode(_fileno(stdout), _O_U8TEXT);
     setlocale(LC_ALL, "");
@@ -71,6 +75,7 @@ void MenuInicial::exibirMenuInicial() {
         std::wcout << L">>Escolha uma opção: ";
         cin >> opcao;
 
+        //Define o que será mostrado em cada opção do Menu
         switch(opcao) {
             case 1:
                 iniciarJogo.exibirMenuIniciarJogo();

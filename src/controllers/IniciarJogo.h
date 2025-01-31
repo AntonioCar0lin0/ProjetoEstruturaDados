@@ -4,9 +4,10 @@
 #include <vector>
 #include "../models/Personagem.h"
 
+//Declaração da classe IniciarJogo, responsável por gerenciar o início da partida
 class IniciarJogo {
 private:
-    std::vector<Personagem*> personagensEscolhidos;
+    std::vector<Personagem*> personagensEscolhidos; //Vetor que armazena os personagens selecionados pelo jogador
 public:
     void exibirMenuIniciarJogo();
     void escolherPersonagens();

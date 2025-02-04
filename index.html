@@ -9,9 +9,8 @@
 <body>
 <header style="background: url('assets/images/StrangerThings image.jpg') no-repeat center center; background-size: cover;">
 </header>
-<section class = "título">
+<section class="título">
     <h1>Projeto RPG - Stranger Things</h1>
-    <p>Desenvolvido na disciplina de Estrutura de Dados Orientada a Objetos</p>
 </section>
 <section class="sobre">
     <h2>Sobre o Projeto</h2>
@@ -55,6 +54,37 @@
         <li>Operações CRUD</li>
     </ul>
 </section>
-<footer></footer>
+
+<section class="video-container" onclick="playVideo()">
+    <h2>Vídeo de apresentação do projeto</h2>
+    <div class="thumbnail">
+        <img src="https://img.youtube.com/vi/XxTSOIiWMd8/maxresdefault.jpg" alt="Miniatura do Vídeo">
+        <div class="play-button"></div>
+    </div>
+    <div id="video-wrapper" style="display: none;">
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/XxTSOIiWMd8?autoplay=1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<footer>
+    <h2>GitHub</h2>
+        <a href="https://github.com/AntonioCar0lin0/ProjetoEstruturaDados" target="_blank" class="github-button">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="20">
+        </a>
+</footer>
+
+<script>
+    function playVideo() {
+        document.querySelector('.thumbnail').style.display = 'none';
+        document.getElementById('video-wrapper').style.display = 'block';
+    }
+</script>
+
 </body>
 </html>

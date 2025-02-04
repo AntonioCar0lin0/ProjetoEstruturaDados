@@ -66,19 +66,33 @@ footer {
     color: #000;
 }
 
-/* Estilos do vídeo */
 .video-container {
     text-align: center;
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 800px; /* Limita a largura máxima */
+    width: 100%;
 }
 
 .thumbnail {
     position: relative;
     width: 100%;
-    max-width: 560px;
+    max-width: 560px; /* Evita que fique muito grande */
     margin: auto;
     cursor: pointer;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+}
+
+#video-wrapper {
+    width: 100%;
+    max-width: 560px; /* Mantém o tamanho fixo do vídeo */
+    margin: auto;
+    display: none;
 }
 
 .thumbnail img {
